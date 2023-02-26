@@ -15,6 +15,8 @@ public class BuyItemScreen : IUIScreen
     [SerializeField]
     private TextMeshProUGUI itemCostText;
     [SerializeField]
+    private Image visualItemDisplay;
+    [SerializeField]
     private Image itemTypeIcon;
     [SerializeField]
     private Button buyButton;
@@ -37,6 +39,7 @@ public class BuyItemScreen : IUIScreen
     {
         this.item = item;
         itemCostText.text = item.Price.ToString();
+        visualItemDisplay.sprite = item.DisplayableItem;
         itemNameText.text = item.Name;
     }
 

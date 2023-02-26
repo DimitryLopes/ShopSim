@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor;
-
+//why am I still here? just to suffer?
 public class CurrencyItem : Item
 {
 }

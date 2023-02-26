@@ -11,7 +11,7 @@ public class Shopkeeper : MonoBehaviour, IInteractable
     public void Interact()
     {
         DialogueScreen screen = uiManager.GetScreen(ScreenType.DialogueScreen) as DialogueScreen;
-        screen.SetUp("hello I'm placeholder");
+        screen.SetUp("Welcome to my generic shop! make yourself at home, my home");
         screen.Show();
     }
 }

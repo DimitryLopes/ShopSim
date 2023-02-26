@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc380bd5f3788c341bb8ac05c0d9e679, type: 3}
+  m_Name: TheVeryFirstOne
+  m_EditorClassIdentifier: 
+  type: 1
+  name: Yodler
+  spriteSheet: {fileID: -778901334, guid: 7cbeeef02d523c74dab01767b4ce4a14, type: 3}
+  displayableSprite: {fileID: -357852010, guid: 7cbeeef02d523c74dab01767b4ce4a14, type: 3}
+  price: 50

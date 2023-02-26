@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 90e38429adbc70c4ead68ba6039ffe2e
+guid: 7cbeeef02d523c74dab01767b4ce4a14
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dirndl_nesw_48x64_0
+      name: Yodler Body_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 738cc45c82f2d634186c89dfc5441934
-      internalID: -1938256366
+      spriteID: ffe89ee84d752214a877547b792f884d
+      internalID: -778901334
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dirndl_nesw_48x64_1
+      name: Yodler Body_1
       rect:
         serializedVersion: 2
         x: 48
@@ -139,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c70fbe6f45d5624f9b4c2c9fbb00020
-      internalID: 2059730963
+      spriteID: b3110d440d2aeb54aa73629a4c20ab8f
+      internalID: -1674602639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dirndl_nesw_48x64_2
+      name: Yodler Body_2
       rect:
         serializedVersion: 2
         x: 96
@@ -160,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 381e20b0fbd2a134d9d775d52ea9a6a7
-      internalID: -307635069
+      spriteID: 44bae5d2293677a4ea9cc23a093dc301
+      internalID: 2144514448
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dirndl_nesw_48x64_3
+      name: Yodler Body_3
       rect:
         serializedVersion: 2
         x: 0
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f32a2029935b6a74da7e0bf3540df237
-      internalID: -848228826
+      spriteID: ff82dd18601e4b54da6fcc041fc89da0
+      internalID: 863717085
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dirndl_nesw_48x64_4
+      name: Yodler Body_4
       rect:
         serializedVersion: 2
         x: 48
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b3e182d438951143ba728463470d491
-      internalID: 1147307710
+      spriteID: 7499c041c8058e14a8b83dabc1c69366
+      internalID: -729987151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dirndl_nesw_48x64_5
+      name: Yodler Body_5
       rect:
         serializedVersion: 2
         x: 96
@@ -223,14 +223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9cf92b9f51f2f045906d73b363be1f6
-      internalID: 517504476
+      spriteID: 7a961856ef4aaad4f9154b48d13ef5b0
+      internalID: -1118292005
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dirndl_nesw_48x64_6
+      name: Yodler Body_6
       rect:
         serializedVersion: 2
         x: 0
@@ -244,14 +244,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26c550e8dfdc1a64980bdac0194b61b9
-      internalID: 1997413307
+      spriteID: 568ed959d9070de488a7d73324983522
+      internalID: 1019486966
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dirndl_nesw_48x64_7
+      name: Yodler Body_7
       rect:
         serializedVersion: 2
         x: 48
@@ -265,14 +265,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e9ac570dbb0ca546b773e200c81e58e
-      internalID: 1496596871
+      spriteID: 2196e8c2fdc28c94fa8e8dd009f09e11
+      internalID: -357852010
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dirndl_nesw_48x64_8
+      name: Yodler Body_8
       rect:
         serializedVersion: 2
         x: 96
@@ -286,14 +286,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc94c3a1db723024294a256a4504acf5
-      internalID: -341044180
+      spriteID: 5584df7d20f35a4499e3cdaa621fe98f
+      internalID: -1553428496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dirndl_nesw_48x64_9
+      name: Yodler Body_9
       rect:
         serializedVersion: 2
         x: 0
@@ -307,14 +307,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba3ec97b184551945bb698b28d64ce2b
-      internalID: 1303788895
+      spriteID: a158b392147216840ac1b47031677ac3
+      internalID: -480647560
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dirndl_nesw_48x64_10
+      name: Yodler Body_10
       rect:
         serializedVersion: 2
         x: 48
@@ -328,14 +328,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c8150e77e063b344bb753343dbc53a0
-      internalID: 348036788
+      spriteID: 248bccb1f785c6e48a059bd741de7171
+      internalID: 602861473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dirndl_nesw_48x64_11
+      name: Yodler Body_11
       rect:
         serializedVersion: 2
         x: 96
@@ -349,8 +349,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 873363500de5c9b44b6a46023a291a0e
-      internalID: 1439094351
+      spriteID: e696e5db22fdb0545b5e4a6809704829
+      internalID: 45452621
       vertices: []
       indices: 
       edges: []
@@ -366,18 +366,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      dirndl_nesw_48x64_9: 1303788895
-      dirndl_nesw_48x64_0: -1938256366
-      dirndl_nesw_48x64_2: -307635069
-      dirndl_nesw_48x64_5: 517504476
-      dirndl_nesw_48x64_8: -341044180
-      dirndl_nesw_48x64_11: 1439094351
-      dirndl_nesw_48x64_4: 1147307710
-      dirndl_nesw_48x64_3: -848228826
-      dirndl_nesw_48x64_7: 1496596871
-      dirndl_nesw_48x64_10: 348036788
-      dirndl_nesw_48x64_1: 2059730963
-      dirndl_nesw_48x64_6: 1997413307
+      Yodler Body_9: -480647560
+      Yodler Body_7: -357852010
+      Yodler Body_10: 602861473
+      Yodler Body_11: 45452621
+      Yodler Body_0: -778901334
+      Yodler Body_2: 2144514448
+      Yodler Body_8: -1553428496
+      Yodler Body_4: -729987151
+      Yodler Body_1: -1674602639
+      Yodler Body_3: 863717085
+      Yodler Body_6: 1019486966
+      Yodler Body_5: -1118292005
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

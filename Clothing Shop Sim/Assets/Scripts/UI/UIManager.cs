@@ -16,16 +16,6 @@ public class UIManager
         screenDatabase.CreateDictionary();
     }
 
-    public void ShowScreen(ScreenType type)
-    {
-        screenDatabase.Screens[type].Show();
-    }
-
-    public void HideScreen(ScreenType type)
-    {
-        screenDatabase.Screens[type].Hide();
-    }
-
     public IUIScreen GetScreen(ScreenType type)
     {
         return screenDatabase.Screens[type];

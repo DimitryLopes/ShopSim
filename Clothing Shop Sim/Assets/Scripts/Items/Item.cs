@@ -1,13 +1,18 @@
 using UnityEditor;
 using UnityEngine;
 
-public class Item
+public class Item : ScriptableObject
 {
     protected const string ITEM_ICON_PATH = "Assets/Sprites/Clothes/Icons/";
     private const string ICON_PREFIX = "Icon";
 
-    public ItemType Type { get; }
-    public string Name { get; }
+    [SerializeField]
+    private ItemType type;
+    [SerializeField]
+    private string name;
+
+    public ItemType Type => type;
+    public string Name => name;
     public int Quantity { get; set; }
 
     public Sprite GetSpriteIcon()

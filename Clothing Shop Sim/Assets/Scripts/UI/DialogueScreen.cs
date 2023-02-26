@@ -7,16 +7,21 @@ using Zenject;
 
 public class DialogueScreen : IUIScreen
 {
+    [Inject]
+    private WorldManager worldManager;
+
     [SerializeField]
-    protected Transform startPosition;
+    private Transform startPosition;
     [SerializeField]
-    protected Transform endPosition;
+    private Transform endPosition;
     [SerializeField]
     private TextMeshProUGUI dialogueText;
     [SerializeField]
     private Transform screenTransform;
     [SerializeField]
     private Button SellItemsButton;
+    [SerializeField]
+    private Button updateMannequinsButton;
 
 
     protected override void DoShowAnimation()
@@ -32,5 +37,10 @@ public class DialogueScreen : IUIScreen
     public void SetUp(string text)
     {
         dialogueText.text = text;
+    }
+
+    public void RefreshMannequins()
+    {
+        worldManager.RefreshMannequins();
     }
 }

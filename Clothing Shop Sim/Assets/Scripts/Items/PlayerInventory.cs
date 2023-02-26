@@ -11,12 +11,8 @@ public class PlayerInventory
 
     public void AddItem(Item item)
     {
+        //change this to save
         items.Add(item);
-    }
-
-    public bool HasItem(Item item)
-    {
-        return items.Contains(item);
     }
 
     public bool HasEnoughCurrency(int amount)
