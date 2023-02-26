@@ -7,10 +7,11 @@ public class PlayerInstaller : MonoInstaller
 {
     [SerializeField]
     private Player player;
+    private PlayerInventory playerInventory;
 
     public override void InstallBindings()
     {
-        PlayerManager playerManager = new PlayerManager(player);
+        PlayerManager playerManager = new PlayerManager(player, playerInventory);
         Container.Bind<PlayerManager>().FromInstance(playerManager).AsSingle();
     }
 }

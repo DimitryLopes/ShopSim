@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
-public class CurrencyItem : Item
+public enum ItemType
 {
+    HeadClothing,
+    BodyClothing,
+    LegsClothing,
 }

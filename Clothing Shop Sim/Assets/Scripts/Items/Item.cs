@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class Item
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    protected const string ITEM_ICON_PATH = "Assets/Sprites/Clothes/Icons/";
+    private const string ICON_PREFIX = "Icon";
 
-    // Update is called once per frame
-    void Update()
+    public ItemType Type { get; }
+    public string Name { get; }
+    public int Quantity { get; set; }
+
+    public Sprite GetSpriteIcon()
     {
-        
+        Sprite sprite = (Sprite)AssetDatabase.LoadAssetAtPath(ITEM_ICON_PATH + Type + ICON_PREFIX, typeof(Sprite));
+        return sprite;
     }
 }

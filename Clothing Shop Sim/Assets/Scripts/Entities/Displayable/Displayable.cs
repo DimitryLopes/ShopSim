@@ -9,7 +9,7 @@ public class Displayable : MonoBehaviour
 
     void Display(Direction direction)
     {
-        Sprite sprite = item.GetSprite();
+        Sprite sprite = item.GetSpriteIcon();
         renderer.sprite = sprite;
     }
 }

@@ -33,7 +33,6 @@ public abstract class IUIScreen : MonoBehaviour
     {
         if (!isShown)
         {
-
             DisableButtons();
             gameObject.SetActive(true);
             isShown = true;
