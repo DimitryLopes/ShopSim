@@ -8,10 +8,16 @@ using Zenject;
 public class ItemManager
 {
     const string ITEMS_PATH = "ScriptableObjects/Items";
+
+    private PlayerInventory playerInventory;
+    public PlayerInventory Inventory => playerInventory;
+
     public List<VisualItem> VisualItems = new List<VisualItem>();
 
-    public ItemManager()
+    public ItemManager(PlayerInventory inventory)
     {
+        playerInventory = inventory;
+
         Object[] items = Resources.LoadAll(ITEMS_PATH, typeof(ScriptableObject));
         foreach (VisualItem item in items)
         {

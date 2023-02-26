@@ -6,5 +6,6 @@ public class SignalInstaller : MonoInstaller
     {
         SignalBusInstaller.Install(Container);
         Container.DeclareSignal<OnCurrencyChangedSignal>();
+        Container.DeclareSignal<OnInventoryItemSelectedSignal>();
     }
 }

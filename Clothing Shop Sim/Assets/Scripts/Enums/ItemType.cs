@@ -6,5 +6,5 @@ public enum ItemType
 {
     HeadClothing,
     BodyClothing,
-    LegsClothing,
+    ShoesClothing,
 }

@@ -9,7 +9,7 @@ public class CurrencyDisplay : MonoBehaviour
     [Inject]
     private SignalBus signalBus;
     [Inject]
-    private PlayerManager playerManager;
+    private ItemManager itemManager;
 
     [SerializeField]
     private TextMeshProUGUI currencyAmountText;
@@ -26,7 +26,7 @@ public class CurrencyDisplay : MonoBehaviour
 
     private void Start()
     {
-        inventory = playerManager.Inventory;
+        inventory = itemManager.Inventory;
     }
 
     private void OnCurrencyAmontChanged()

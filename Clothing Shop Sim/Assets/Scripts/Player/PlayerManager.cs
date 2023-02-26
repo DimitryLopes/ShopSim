@@ -5,14 +5,9 @@ using UnityEngine;
 public class PlayerManager 
 {
     private Player player;
-    private PlayerInventory inventory;
-
-    public PlayerInventory Inventory => inventory;
-
-    public PlayerManager(Player player, PlayerInventory inventory)
+    public PlayerManager(Player player)
     {
         this.player = player;
-        this.inventory = inventory;
     }
 
     public void AllowPlayerActions(bool value)

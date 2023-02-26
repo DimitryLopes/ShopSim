@@ -78,7 +78,6 @@ public class Player : MonoBehaviour
         movementVector.x = Input.GetAxisRaw(HORIZONTAL_AXIS);
         movementVector.y = Input.GetAxisRaw(VERTICAL_AXIS);
         
-
         rigidbody2D.velocity = movementVector.normalized * movementSpeed * Time.deltaTime;
     }
     #endregion
@@ -95,5 +94,10 @@ public class Player : MonoBehaviour
     {
         SetMovementState(state);
         SetInteractionState(state);
+        if(state == false)
+        {
+            movementVector = Vector2.zero;
+            rigidbody2D.velocity = Vector2.zero;
+        }
     }
 }

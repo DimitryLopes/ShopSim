@@ -7,7 +7,7 @@ public class Mannequin : MonoBehaviour, IInteractable
     private UIManager uiManager;
 
     [SerializeField]
-    private VisualItemView itemView;
+    private WorldItemView itemView;
 
     public VisualItem Item { get; private set; }
 

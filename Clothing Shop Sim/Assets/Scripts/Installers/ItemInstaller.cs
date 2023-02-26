@@ -4,7 +4,8 @@ public class ItemInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {
-        ItemManager itemManager = new ItemManager();
+        PlayerInventory playerInventory = new PlayerInventory();
+        ItemManager itemManager = new ItemManager(playerInventory);
         Container.Bind<ItemManager>().FromInstance(itemManager).AsSingle();
     }
 }

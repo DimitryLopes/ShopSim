@@ -16,7 +16,7 @@ public class UIManager
         screenDatabase.CreateDictionary();
     }
 
-    public IUIScreen GetScreen(ScreenType type)
+    public UIScreen GetScreen(ScreenType type)
     {
         return screenDatabase.Screens[type];
     }
@@ -31,15 +31,15 @@ public class UIManager
 public struct ScreenDatabase
 {
     [SerializeField]
-    private List<IUIScreen> screens;
+    private List<UIScreen> screens;
     [SerializeField]
     private List<ScreenType> types;
 
-    public Dictionary<ScreenType, IUIScreen> Screens;
+    public Dictionary<ScreenType, UIScreen> Screens;
 
     public void CreateDictionary()
     {
-        Screens = new Dictionary<ScreenType, IUIScreen>();
+        Screens = new Dictionary<ScreenType, UIScreen>();
         for(int i = 0; i < screens.Count; i++)
         {
             Screens.Add(types[i], screens[i]);

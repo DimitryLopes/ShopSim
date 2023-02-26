@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class PlayerInventory
 {
-    private List<Item> items;
+    public List<VisualItem> VisualItems = new List<VisualItem>();
 
     private CurrencyItem currency;
     public int CurrencyAmount => currency.Quantity;
 
-    public void AddItem(Item item)
+    public void AddItem(VisualItem item)
     {
         //change this to save
-        items.Add(item);
+        if (HasItem(item) == false)
+        {
+            VisualItems.Add(item);
+        }
+    }
+
+    public void RemoveItem(VisualItem item)
+    {
+        if (HasItem(item))
+        {
+            VisualItems.Remove(item);
+        }
+    }
+
+    public bool HasItem(VisualItem item)
+    {
+        return VisualItems.Contains(item);
     }
 
     public bool HasEnoughCurrency(int amount)

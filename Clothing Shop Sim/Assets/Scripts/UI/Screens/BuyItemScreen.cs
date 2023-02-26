@@ -5,10 +5,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class BuyItemScreen : IUIScreen
+public class BuyItemScreen : UIScreen
 {
     [Inject]
-    private PlayerManager playerManager;
+    private ItemManager itemManager;
 
     [SerializeField]
     private TextMeshProUGUI itemNameText;
@@ -17,7 +17,7 @@ public class BuyItemScreen : IUIScreen
     [SerializeField]
     private Image visualItemDisplay;
     [SerializeField]
-    private Image itemTypeIcon;
+    private UIItemView itemTypeIcon;
     [SerializeField]
     private Button buyButton;
 
@@ -40,6 +40,8 @@ public class BuyItemScreen : IUIScreen
         this.item = item;
         itemCostText.text = item.Price.ToString();
         visualItemDisplay.sprite = item.DisplayableItem;
+        Sprite itemIconSprite = item.GetSpriteIcon();
+        itemTypeIcon.DisplayItem(itemIconSprite);
         itemNameText.text = item.Name;
     }
 
@@ -55,7 +57,7 @@ public class BuyItemScreen : IUIScreen
 
     private void BuyItem()
     {
-        PlayerInventory inventory = playerManager.Inventory;
+        PlayerInventory inventory = itemManager.Inventory;
         bool canBuy = inventory.HasEnoughCurrency(item.Price);
         if (canBuy)
         {

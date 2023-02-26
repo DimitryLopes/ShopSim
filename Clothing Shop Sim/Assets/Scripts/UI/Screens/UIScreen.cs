@@ -4,7 +4,7 @@ using UnityEngine;
 using Zenject;
 using UnityEngine.UI;
 
-public abstract class IUIScreen : MonoBehaviour 
+public abstract class UIScreen : MonoBehaviour 
 {
     [Inject]
     private PlayerManager playerManager;
@@ -72,7 +72,7 @@ public abstract class IUIScreen : MonoBehaviour
         uiManager.AllowClick(true);
     }
 
-    protected void Close()
+    protected virtual void Close()
     {
         gameObject.SetActive(false);
     }
