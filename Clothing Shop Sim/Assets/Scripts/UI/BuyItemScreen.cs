@@ -11,7 +11,9 @@ public class BuyItemScreen : IUIScreen
     private PlayerManager playerManager;
 
     [SerializeField]
-    private TextMeshProUGUI itemTitleText;
+    private TextMeshProUGUI itemNameText;
+    [SerializeField]
+    private TextMeshProUGUI itemCostText;
     [SerializeField]
     private Image itemTypeIcon;
     [SerializeField]
@@ -19,10 +21,23 @@ public class BuyItemScreen : IUIScreen
 
     private VisualItem item;
 
+    protected override void SubscribeListeners()
+    {
+        base.SubscribeListeners();
+        buyButton.onClick.AddListener(BuyItem);
+    }
+
+    protected override void UnsubscribeListeners()
+    {
+        base.UnsubscribeListeners();
+        buyButton.onClick.RemoveAllListeners();
+    }
+
     public void SetUp(VisualItem item)
     {
         this.item = item;
-        buyButton.onClick.AddListener(BuyItem);
+        itemCostText.text = item.Price.ToString();
+        itemNameText.text = item.Name;
     }
 
     protected override void DoHideAnimation()

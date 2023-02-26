@@ -7,9 +7,10 @@ using Zenject;
 
 public class DialogueScreen : IUIScreen
 {
-    [Inject]
-    private PlayerManager playerManager;
-
+    [SerializeField]
+    protected Transform startPosition;
+    [SerializeField]
+    protected Transform endPosition;
     [SerializeField]
     private TextMeshProUGUI dialogueText;
     [SerializeField]

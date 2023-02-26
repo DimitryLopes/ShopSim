@@ -7,6 +7,7 @@ public class PlayerInventory
     private List<Item> items;
 
     private CurrencyItem currency;
+    public int CurrencyAmount => currency.Quantity;
 
     public void AddItem(Item item)
     {

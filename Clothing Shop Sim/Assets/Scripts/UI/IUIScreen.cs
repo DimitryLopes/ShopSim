@@ -12,10 +12,6 @@ public abstract class IUIScreen : MonoBehaviour
     private UIManager uiManager;
 
     [SerializeField]
-    protected Transform startPosition;
-    [SerializeField]
-    protected Transform endPosition;
-    [SerializeField]
     protected float animationDuration;
     [SerializeField]
     private Button closeButton;
@@ -26,7 +22,22 @@ public abstract class IUIScreen : MonoBehaviour
 
     private void Awake()
     {
+        SubscribeListeners();
+    }
+
+    private void OnDestroy()
+    {
+        UnsubscribeListeners();
+    }
+
+    protected virtual void SubscribeListeners()
+    {
         closeButton.onClick.AddListener(Hide);
+    }
+
+    protected virtual void UnsubscribeListeners()
+    {
+        closeButton.onClick.RemoveAllListeners();
     }
 
     public void Show()
