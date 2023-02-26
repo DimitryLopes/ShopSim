@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
 
-public class ManagersInstaller : MonoInstaller
+public class UIInstaller : MonoInstaller
 {
     [SerializeField]
     private EventSystem eventSystem;
@@ -13,8 +13,7 @@ public class ManagersInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        UIManager uIManager = new UIManager();
-        uIManager.Load(screenDatabase, eventSystem);
+        UIManager uIManager = new UIManager(screenDatabase, eventSystem);
         Container.Bind<UIManager>().FromInstance(uIManager).AsSingle();
     }
 }

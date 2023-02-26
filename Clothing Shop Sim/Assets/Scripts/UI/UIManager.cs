@@ -9,7 +9,7 @@ public class UIManager
     private ScreenDatabase screenDatabase;
     private EventSystem eventSystem;
 
-    public void Load(ScreenDatabase database, EventSystem eventSystem)
+    public UIManager(ScreenDatabase database, EventSystem eventSystem)
     {
         screenDatabase = database;
         this.eventSystem = eventSystem;

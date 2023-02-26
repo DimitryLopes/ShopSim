@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
         animator.SetFloat(ANIMATION_KEY_SPEED, movementVector.sqrMagnitude);
     }
     #endregion
-    public void SetPlayerState(bool state)
+    public void SetPlayerActions(bool state)
     {
         SetMovementState(state);
         SetInteractionState(state);

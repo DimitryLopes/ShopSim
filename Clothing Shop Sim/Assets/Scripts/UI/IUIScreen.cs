@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public abstract class IUIScreen : MonoBehaviour 
 {
     [Inject]
+    private PlayerManager playerManager;
+    [Inject]
     private UIManager uiManager;
 
     [SerializeField]
@@ -31,9 +33,11 @@ public abstract class IUIScreen : MonoBehaviour
     {
         if (!isShown)
         {
+
             DisableButtons();
             gameObject.SetActive(true);
             isShown = true;
+            playerManager.AllowPlayerActions(false);
             DoShowAnimation();
         }
     }
@@ -42,6 +46,7 @@ public abstract class IUIScreen : MonoBehaviour
     {
         if (isShown)
         {
+            playerManager.AllowPlayerActions(true);
             isShown = false;
             DoHideAnimation();
         }
