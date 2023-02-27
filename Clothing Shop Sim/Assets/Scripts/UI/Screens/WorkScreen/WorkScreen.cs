@@ -20,10 +20,13 @@ public class WorkScreen : UISlidingScreen
     protected override void OnBeforeShow()
     {
         base.OnBeforeShow();
-        foreach(Job job in jobManager.AllJobs)
+        if (isFirstShow)
         {
-            JobView view = jobViewFactory.Create(job, signalBus, itemManager);
-            view.transform.SetParent(jobsContainer, false);
+            foreach (Job job in jobManager.AllJobs)
+            {
+                JobView view = jobViewFactory.Create(job, signalBus, itemManager);
+                view.transform.SetParent(jobsContainer, false);
+            }
         }
     }
 }

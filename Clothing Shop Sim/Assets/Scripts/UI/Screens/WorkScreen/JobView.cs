@@ -29,6 +29,7 @@ public class JobView : MonoBehaviour
     {
         this.job = job;
         jobNameText.text = job.JobName;
+        this.itemManager = itemManager;
         jobButtonNameText.text = job.JobWorkButtonName;
         rewardAmountText.text = job.RewardAmount.ToString();
         this.signalBus = signalBus;
@@ -45,7 +46,8 @@ public class JobView : MonoBehaviour
     {
         for (int i = 0; i < job.ItemRequirement.Count; i++)
         {
-            itemRequirementViews[i].DisplayItem(job.ItemRequirement[i]);
+            itemRequirementViews[i].DisplayItem(job.ItemRequirement[i].ItemIcon);
+            itemRequirementViews[i].gameObject.SetActive(true);
         }
     }
 
@@ -55,11 +57,11 @@ public class JobView : MonoBehaviour
         {
             if(itemManager.Inventory.EquipedItems.ContainsValue(item) == false)
             {
-                workButton.interactable = false;
+                workButton.gameObject.SetActive(false);
                 return;
             }
         }
-        workButton.interactable = true;
+        workButton.gameObject.SetActive(true);
     }
 
     public class Factory : PlaceholderFactory<Job, SignalBus, ItemManager, JobView> { }

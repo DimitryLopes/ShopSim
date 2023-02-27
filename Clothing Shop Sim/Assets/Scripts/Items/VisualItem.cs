@@ -9,10 +9,13 @@ public class VisualItem : Item
     [SerializeField]
     private Sprite spriteSheet;
     [SerializeField]
-    private Sprite displayableSprite;
+    private Sprite mannequinDisplayable;
+    [SerializeField]
+    private Sprite iconSprite;
     [SerializeField]
     private int price;
 
     public int Price => price;
-    public Sprite DisplayableItem => displayableSprite;
+    public Sprite ItemIcon => iconSprite;
+    public Sprite MannequinDisplayable => mannequinDisplayable;
 }

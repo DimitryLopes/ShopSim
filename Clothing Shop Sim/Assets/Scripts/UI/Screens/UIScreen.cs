@@ -19,6 +19,7 @@ public abstract class UIScreen : MonoBehaviour
     protected LeanTweenType ease;
 
     bool isShown;
+    protected bool isFirstShow = true;
 
     private void Awake()
     {
@@ -45,9 +46,10 @@ public abstract class UIScreen : MonoBehaviour
         if (!isShown)
         {
             DisableButtons();
+            OnBeforeShow();
             isShown = true;
             playerManager.AllowPlayerActions(false);
-            OnBeforeShow();
+            isFirstShow = false;
             gameObject.SetActive(true);
         }
     }

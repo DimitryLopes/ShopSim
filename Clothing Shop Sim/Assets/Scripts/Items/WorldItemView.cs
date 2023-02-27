@@ -7,6 +7,6 @@ public class WorldItemView : MonoBehaviour, IItemView
 
     public void DisplayItem(VisualItem item)
     {
-        renderer.sprite = item != null ? item.DisplayableItem : null;
+        renderer.sprite = item != null ? item.MannequinDisplayable : null;
     }
 }

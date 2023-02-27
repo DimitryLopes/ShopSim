@@ -15,5 +15,6 @@ MonoBehaviour:
   type: 1
   name: Yodler Vest
   spriteSheet: {fileID: -778901334, guid: 7cbeeef02d523c74dab01767b4ce4a14, type: 3}
-  displayableSprite: {fileID: -357852010, guid: 7cbeeef02d523c74dab01767b4ce4a14, type: 3}
+  mannequinDisplayable: {fileID: -357852010, guid: 7cbeeef02d523c74dab01767b4ce4a14, type: 3}
+  iconSprite: {fileID: 21300000, guid: 829addead2db9434ca9707cf464aa1c5, type: 3}
   price: 50

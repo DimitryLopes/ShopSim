@@ -8,7 +8,7 @@ public class UIItemView : MonoBehaviour, IItemView
 
     public void DisplayItem(VisualItem item)
     {
-        renderer.sprite = item != null ? item.DisplayableItem : null;
+        renderer.sprite = item != null ? item.MannequinDisplayable : null;
     }
 
     public void DisplayItem(Sprite sprite)

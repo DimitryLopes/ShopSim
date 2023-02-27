@@ -39,7 +39,7 @@ public class BuyItemScreen : UIScreen
     {
         this.item = item;
         itemCostText.text = item.Price.ToString();
-        visualItemDisplay.sprite = item.DisplayableItem;
+        visualItemDisplay.sprite = item.MannequinDisplayable;
         Sprite itemIconSprite = item.GetSpriteIcon();
         itemTypeIcon.DisplayItem(itemIconSprite);
         itemNameText.text = item.Name;

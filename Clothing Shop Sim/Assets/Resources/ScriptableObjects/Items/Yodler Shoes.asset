@@ -15,5 +15,6 @@ MonoBehaviour:
   type: 2
   name: Yodler Shoes
   spriteSheet: {fileID: -915417879, guid: 85994e1df7c541b4db47061da502ae49, type: 3}
-  displayableSprite: {fileID: -750900337, guid: 85994e1df7c541b4db47061da502ae49, type: 3}
+  mannequinDisplayable: {fileID: -750900337, guid: 85994e1df7c541b4db47061da502ae49, type: 3}
+  iconSprite: {fileID: 21300000, guid: 6f333eca6d058be4bb267c7463138ff6, type: 3}
   price: 50

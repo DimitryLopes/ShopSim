@@ -14,11 +14,11 @@ public class UISlidingScreen : UIScreen
 
     protected override void OnBeforeShow()
     {
-        screenTransform.LeanMoveLocalY(endPosition.localPosition.y, animationDuration).setEase(ease).setOnComplete(EnableButtons);
+        screenTransform.LeanMoveLocal(endPosition.localPosition, animationDuration).setEase(ease).setOnComplete(EnableButtons);
     }
 
     protected override void OnAfterHide()
     {
-        screenTransform.LeanMoveLocalY(startPosition.localPosition.y, animationDuration).setEase(ease).setOnComplete(Close);
+        screenTransform.LeanMoveLocal(startPosition.localPosition, animationDuration).setEase(ease).setOnComplete(Close);
     }
 }
