@@ -12,9 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc380bd5f3788c341bb8ac05c0d9e679, type: 3}
   m_Name: Yodler Shoes
   m_EditorClassIdentifier: 
+  quantity: 1
   type: 2
   name: Yodler Shoes
-  spriteSheet: {fileID: -915417879, guid: 85994e1df7c541b4db47061da502ae49, type: 3}
+  spriteSheet:
+  - {fileID: -915417879, guid: 85994e1df7c541b4db47061da502ae49, type: 3}
+  - {fileID: 1292894373, guid: 85994e1df7c541b4db47061da502ae49, type: 3}
+  - {fileID: 903302327, guid: 85994e1df7c541b4db47061da502ae49, type: 3}
+  - {fileID: -508932012, guid: 85994e1df7c541b4db47061da502ae49, type: 3}
+  - {fileID: 183030599, guid: 85994e1df7c541b4db47061da502ae49, type: 3}
+  - {fileID: 1206042698, guid: 85994e1df7c541b4db47061da502ae49, type: 3}
+  - {fileID: -868086028, guid: 85994e1df7c541b4db47061da502ae49, type: 3}
+  - {fileID: -750900337, guid: 85994e1df7c541b4db47061da502ae49, type: 3}
+  - {fileID: -1470827316, guid: 85994e1df7c541b4db47061da502ae49, type: 3}
+  - {fileID: -1619303131, guid: 85994e1df7c541b4db47061da502ae49, type: 3}
+  - {fileID: 1467546022, guid: 85994e1df7c541b4db47061da502ae49, type: 3}
+  - {fileID: 1560585981, guid: 85994e1df7c541b4db47061da502ae49, type: 3}
   mannequinDisplayable: {fileID: -750900337, guid: 85994e1df7c541b4db47061da502ae49, type: 3}
   iconSprite: {fileID: 21300000, guid: 6f333eca6d058be4bb267c7463138ff6, type: 3}
   price: 50
