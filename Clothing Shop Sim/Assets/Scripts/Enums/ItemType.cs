@@ -7,4 +7,5 @@ public enum ItemType
     HeadClothing,
     BodyClothing,
     ShoesClothing,
+    Currency
 }

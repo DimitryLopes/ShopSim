@@ -1,9 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
+using static UnityEditor.Progress;
 
 public class Player : MonoBehaviour
 {
+    [Inject]
+    private SignalBus signalBus;
+    [Inject]
+    private ItemManager itemManager;
+
     private string HORIZONTAL_AXIS = "Horizontal";
     private string VERTICAL_AXIS = "Vertical";
     private string LAST_VERTICAL_INPUT = "LastMoveVertical";
@@ -15,17 +23,42 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rigidbody2D;
     private Vector2 movementVector;
+    private bool canMove = true;
 
     [SerializeField, Header("Animation")]
     private Animator animator;
+    [SerializeField]
+    private SpriteRenderer hatRenderer;
+    [SerializeField]
+    private SpriteRenderer bodyRenderer;
+    [SerializeField]
+    private SpriteRenderer shoesRenderer;
+    private int animationFrameIndex;
+    //this is because animator triggers both animations when player is moving diagonally, that way the clothes won't
+    //follow the wrong animation
+    private bool canTriggerClothAnimation = true;
+    private Dictionary<ItemType, SpriteRenderer> clothRenderers = new Dictionary<ItemType, SpriteRenderer>();
 
     [SerializeField, Space, Header("Interaction")]
     private string interactableTag;
     [SerializeField]
     private float interactionRange;
+    [SerializeField]
+    private SpriteRenderer playerRenderer;
     private Vector2 lastMovement;
     private bool canInteract = true;
-    private bool canMove = true;
+
+    private void OnEnable()
+    {
+        signalBus.Subscribe<OnItemEquippedSignal>(OnItemEquiped);
+        signalBus.Subscribe<OnItemUnequippedSignal>(OnItemUnequiped);
+    }
+
+    private void OnDisable()
+    {
+        signalBus.Unsubscribe<OnItemEquippedSignal>(OnItemEquiped);
+        signalBus.Unsubscribe<OnItemUnequippedSignal>(OnItemUnequiped);
+    }
 
     private void Update()
     {
@@ -34,12 +67,24 @@ public class Player : MonoBehaviour
             HandleInteraction();
         }
 
+
+        HandleAnimation();
+    }
+
+    private void LateUpdate()
+    {
         if (canMove)
         {
             HandleMovement();
         }
+    }
 
-        HandleAnimation();
+    private void Start()
+    {
+        //doesn't need to be hardcoded, but I'll look into later
+        clothRenderers.Add(ItemType.HeadClothing, hatRenderer);
+        clothRenderers.Add(ItemType.BodyClothing, bodyRenderer);
+        clothRenderers.Add(ItemType.ShoesClothing, shoesRenderer);
     }
 
     #region interaction
@@ -50,11 +95,14 @@ public class Player : MonoBehaviour
 
     private void HandleInteraction()
     {
-        Debug.DrawRay(transform.position, lastMovement.normalized * interactionRange, Color.red);
+        Debug.DrawRay(playerRenderer.bounds.center, lastMovement.normalized * interactionRange, Color.red);
+        Debug.DrawRay(playerRenderer.bounds.extents, lastMovement.normalized * interactionRange, Color.blue);
+        Debug.DrawRay(playerRenderer.bounds.min, lastMovement.normalized * interactionRange, Color.green);
+        Debug.DrawRay(playerRenderer.bounds.size, lastMovement.normalized * interactionRange, Color.black);
         //settings to change config here, maybe?
         if (Input.GetKeyDown(KeyCode.E))
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, lastMovement.normalized, interactionRange);
+            RaycastHit2D hit = Physics2D.Raycast(playerRenderer.bounds.min, lastMovement.normalized, interactionRange);
             if (hit)
             {
                 if (hit.collider.gameObject.tag == interactableTag)
@@ -96,6 +144,7 @@ public class Player : MonoBehaviour
         animator.SetFloat(HORIZONTAL_AXIS, movementVector.x);
         animator.SetFloat(VERTICAL_AXIS, movementVector.y);
         animator.SetFloat(ANIMATION_KEY_SPEED, movementVector.sqrMagnitude);
+        canTriggerClothAnimation = true;
 
         if(movementVector != Vector2.zero)
         {
@@ -103,7 +152,46 @@ public class Player : MonoBehaviour
             animator.SetFloat(LAST_VERTICAL_INPUT, movementVector.y);
         }
     }
+
+    private void OnItemEquiped(OnItemEquippedSignal signal)
+    {
+        VisualItem item = itemManager.Inventory.EquipedItems[signal.Item.Type];
+        clothRenderers[item.Type].sprite = item.SpriteSheet[animationFrameIndex];
+    }
+
+    private void OnItemUnequiped(OnItemUnequippedSignal signal)
+    {
+        clothRenderers[signal.Type].sprite = null;
+    }
+
+    //I'm not sure if this is legal. Called on animations
+    public void OnSpriteChanged(int index)
+    {
+        if (canTriggerClothAnimation)
+        {
+            canTriggerClothAnimation = false;
+            animationFrameIndex = index;
+            VisualItem headItem = itemManager.Inventory.EquipedItems[ItemType.HeadClothing];
+            if (headItem != null)
+            {
+                hatRenderer.sprite = headItem.SpriteSheet[animationFrameIndex];
+            }
+
+            VisualItem bodyItem = itemManager.Inventory.EquipedItems[ItemType.BodyClothing];
+            if (bodyItem != null)
+            {
+                bodyRenderer.sprite = bodyItem.SpriteSheet[animationFrameIndex];
+            }
+
+            VisualItem shoesItem = itemManager.Inventory.EquipedItems[ItemType.ShoesClothing];
+            if (shoesItem != null)
+            {
+                shoesRenderer.sprite = shoesItem.SpriteSheet[animationFrameIndex];
+            }
+        }
+    }
     #endregion
+
     public void SetPlayerActions(bool state)
     {
         SetMovementState(state);

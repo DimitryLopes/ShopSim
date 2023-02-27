@@ -18,7 +18,7 @@ public class InventoryScreen : UISlidingScreen
     [SerializeField]
     private Button sellButton;
     [SerializeField]
-    private Button equipButton;
+    private InventoryButton equipButton;
 
     private InventoryItemView selectedItemView;
 
@@ -28,7 +28,6 @@ public class InventoryScreen : UISlidingScreen
     {
         base.OnAwake();
         sellButton.onClick.AddListener(SellItem);
-        equipButton.onClick.AddListener(EquipItem);
         signalBus.Subscribe<OnInventoryItemSelectedSignal>(SelectItem);
     }
 
@@ -37,7 +36,7 @@ public class InventoryScreen : UISlidingScreen
     {
         base.OnScreenDestroyed();
         sellButton.onClick.RemoveAllListeners();
-        equipButton.onClick.RemoveAllListeners();
+        signalBus.Unsubscribe<OnInventoryItemSelectedSignal>(SelectItem);
     }
 
     protected override void OnBeforeShow()
@@ -56,17 +55,30 @@ public class InventoryScreen : UISlidingScreen
             }
             InventoryItemView newItemView = inventoryItemViewFactory.Create(item);
             itemViews.Add(newItemView);
+            newItemView.transform.SetParent(itemViewsContainer);
             newItemView.Deselect();
         }
         //
         base.OnBeforeShow();
     }
 
+    public void SetUp(bool isStore)
+    {
+        sellButton.gameObject.SetActive(isStore);
+        equipButton.gameObject.SetActive(false);
+    }
+
     protected override void Close()
     {
+        if (selectedItemView != null)
+        {
+            selectedItemView.Deselect();
+        }
+
         foreach (InventoryItemView view in itemViews)
         {
             view.Hide();
+
         }
         base.Close();
     }
@@ -74,12 +86,13 @@ public class InventoryScreen : UISlidingScreen
 
     private void SellItem()
     {
-
-    }
-
-    private void EquipItem()
-    {
-
+        if (selectedItemView != null)
+        {
+            itemManager.RemoveItem(selectedItemView.Item);
+            itemManager.ChangeCurrencyAmount(selectedItemView.Item.Price / 3); //arbitrary value
+            selectedItemView.gameObject.SetActive(false);
+            selectedItemView = null;
+        }
     }
 
     private void SelectItem(OnInventoryItemSelectedSignal signal)
@@ -88,6 +101,15 @@ public class InventoryScreen : UISlidingScreen
         {
             selectedItemView.Deselect();
         }
-        signal.ItemView.Select();
+
+        if (signal.ItemView != null)
+        {
+            signal.ItemView.Select();
+            selectedItemView = signal.ItemView;
+        }
+        else
+        {
+            selectedItemView = null;
+        }
     }
 }

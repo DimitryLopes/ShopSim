@@ -23,34 +23,62 @@ public class ItemManager
         playerInventory = inventory;
         this.signalBus = signalBus;
         signalBus.Subscribe<OnJobExcecutedSignal>(OnJobExecuted);
-        GetAllVisualItems();
+        GetAllItems();
     }
 
-    private void GetAllVisualItems()
+    private void GetAllItems()
     {
         Object[] items = Resources.LoadAll(ITEMS_PATH, typeof(ScriptableObject));
-        foreach (VisualItem item in items)
+        foreach (Item item in items)
         {
-            AllVisualItems.Add(item);
+            if (item is VisualItem visualItem)
+            {
+                AllVisualItems.Add(visualItem);
+                if(item.Quantity > 0)
+                {
+                    Inventory.AddItem(visualItem);
+                    if (visualItem.Equipped)
+                    {
+                        Inventory.EquipItem(visualItem);
+                    }
+                }
+                continue;
+            }
+            else if(item is CurrencyItem currencyItem)
+            {
+                Inventory.SetCurrencyItem(currencyItem);
+            }
         }
     }
 
     #region Currency
-
     public void ChangeCurrencyAmount(int amount)
     {
-        signalBus.Fire(new OnCurrencyChangedSignal());
         playerInventory.ChangeCurrencyAmount(amount);
     }
+
     private void OnJobExecuted(OnJobExcecutedSignal signal)
     {
         ChangeCurrencyAmount(signal.Job.RewardAmount);
     }
-
     #endregion
+
+    #region Visual Items
     public bool HasItem(Item item)
     {
         return item.Quantity > 0;
+    }
+
+    public void AddItem(VisualItem item, int amount = 1)
+    {
+        Inventory.AddItem(item);
+        item.Quantity += amount;
+    }
+
+    public void RemoveItem(VisualItem item, int amount = 1)
+    {
+        Inventory.RemoveItem(item);
+        item.Quantity -= amount;
     }
 
     public void RefreshAvailableItems()
@@ -81,4 +109,5 @@ public class ItemManager
         }
         return null;
     }
+    #endregion
 }

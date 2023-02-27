@@ -21,12 +21,13 @@ public class CurrencyDisplay : MonoBehaviour
     }
     private void OnDisable()
     {
-        signalBus.Subscribe<OnCurrencyChangedSignal>(OnCurrencyAmontChanged);
+        signalBus.Unsubscribe<OnCurrencyChangedSignal>(OnCurrencyAmontChanged);
     }
 
     private void Start()
     {
         inventory = itemManager.Inventory;
+        OnCurrencyAmontChanged();
     }
 
     private void OnCurrencyAmontChanged()

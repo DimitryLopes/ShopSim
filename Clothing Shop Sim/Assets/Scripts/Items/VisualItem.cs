@@ -7,7 +7,7 @@ using UnityEngine;
 public class VisualItem : Item
 {
     [SerializeField]
-    private Sprite spriteSheet;
+    private Sprite[] spriteSheet;
     [SerializeField]
     private Sprite mannequinDisplayable;
     [SerializeField]
@@ -15,7 +15,10 @@ public class VisualItem : Item
     [SerializeField]
     private int price;
 
+    public bool Equipped { get; set; }
+
     public int Price => price;
+    public Sprite[] SpriteSheet => spriteSheet;
     public Sprite ItemIcon => iconSprite;
     public Sprite MannequinDisplayable => mannequinDisplayable;
 }

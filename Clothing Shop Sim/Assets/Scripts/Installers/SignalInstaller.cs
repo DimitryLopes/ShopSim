@@ -8,5 +8,8 @@ public class SignalInstaller : MonoInstaller
         Container.DeclareSignal<OnCurrencyChangedSignal>();
         Container.DeclareSignal<OnInventoryItemSelectedSignal>();
         Container.DeclareSignal<OnJobExcecutedSignal>();
+        Container.DeclareSignal<OnItemEquippedSignal>();
+        Container.DeclareSignal<OnItemUnequippedSignal>();
+        Container.DeclareSignal<OnItemBoughtSignal>();
     }
 }

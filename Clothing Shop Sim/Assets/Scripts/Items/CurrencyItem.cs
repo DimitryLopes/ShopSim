@@ -1,4 +1,6 @@
-//why am I still here? just to suffer?
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "Currency", menuName = "ScriptableObjects/Currency")]
 public class CurrencyItem : Item
 {
 }

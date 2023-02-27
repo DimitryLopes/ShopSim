@@ -7,13 +7,15 @@ public class Item : ScriptableObject
     private const string ICON_PREFIX = "Icon";
 
     [SerializeField]
+    private int quantity;
+    [SerializeField]
     private ItemType type;
     [SerializeField]
     private string name;
 
     public ItemType Type => type;
     public string Name => name;
-    public int Quantity { get; set; }
+    public int Quantity { get => quantity; set => quantity = value; }
 
     public Sprite GetSpriteIcon()
     {

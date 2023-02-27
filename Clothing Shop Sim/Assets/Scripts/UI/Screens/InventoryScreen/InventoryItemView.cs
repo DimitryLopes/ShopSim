@@ -23,6 +23,7 @@ public class InventoryItemView : MonoBehaviour
     private Color deselectedColor;
 
     public bool IsActive => gameObject.activeSelf;
+    public VisualItem Item { get; private set; }
 
     private bool isSelected;
 
@@ -35,12 +36,20 @@ public class InventoryItemView : MonoBehaviour
 
     public void DisplayItem(VisualItem item)
     {
-        itemView.DisplayItem(item);
+        Item = item;
+        itemView.DisplayItem(item.ItemIcon);
     }
 
     private void OnButtonClicked()
     {
-        signalBus.Fire(new OnInventoryItemSelectedSignal(this));
+        if (!isSelected)
+        {
+            signalBus.Fire(new OnInventoryItemSelectedSignal(this));
+        }
+        else
+        {
+            signalBus.Fire(new OnInventoryItemSelectedSignal(null));
+        }
     }
 
     public void Select()

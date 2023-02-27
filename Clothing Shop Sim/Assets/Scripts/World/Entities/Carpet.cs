@@ -1,6 +1,7 @@
 using UnityEngine;
 using Zenject;
 
+//Seriously, come up with better names for those
 public class Carpet : MonoBehaviour, IInteractable
 {
     [Inject]

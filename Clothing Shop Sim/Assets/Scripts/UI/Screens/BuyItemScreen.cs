@@ -8,6 +8,8 @@ using Zenject;
 public class BuyItemScreen : UIScreen
 {
     [Inject]
+    private SignalBus signalBus;
+    [Inject]
     private ItemManager itemManager;
 
     [SerializeField]
@@ -61,16 +63,17 @@ public class BuyItemScreen : UIScreen
         bool canBuy = inventory.HasEnoughCurrency(item.Price);
         if (canBuy)
         {
-            OnPurchaseSucess(inventory);
+            OnPurchaseSucess();
             return;
         }
         //OnPurchaseFail() floating text here, maybe?
     }
 
-    private void OnPurchaseSucess(PlayerInventory inventory)
+    private void OnPurchaseSucess()
     {
-        inventory.ChangeCurrencyAmount(-item.Price);
-        inventory.AddItem(item);
+        itemManager.ChangeCurrencyAmount(-item.Price);
+        itemManager.AddItem(item);
+        signalBus.Fire(new OnItemBoughtSignal(item));
         Hide();
     }
 }

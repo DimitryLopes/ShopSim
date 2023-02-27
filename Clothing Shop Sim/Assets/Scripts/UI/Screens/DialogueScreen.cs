@@ -35,6 +35,7 @@ public class DialogueScreen : UISlidingScreen
     {
         Hide();
         InventoryScreen screen = (InventoryScreen)uiManager.GetScreen(ScreenType.InventoryScreen);
+        screen.SetUp(true);
         screen.Show();
     }
 
