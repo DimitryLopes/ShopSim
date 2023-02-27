@@ -69,7 +69,7 @@ public class BuyItemScreen : UIScreen
 
     private void OnPurchaseSucess(PlayerInventory inventory)
     {
-        inventory.RemoveCurrency(item.Price);
+        inventory.ChangeCurrencyAmount(-item.Price);
         inventory.AddItem(item);
         Hide();
     }

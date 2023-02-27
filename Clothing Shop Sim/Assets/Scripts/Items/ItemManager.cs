@@ -9,24 +9,45 @@ public class ItemManager
 {
     const string ITEMS_PATH = "ScriptableObjects/Items";
 
+    private SignalBus signalBus;
     private PlayerInventory playerInventory;
-    public PlayerInventory Inventory => playerInventory;
-
-    public List<VisualItem> VisualItems = new List<VisualItem>();
-
     private List<VisualItem> availableItems;
 
-    public ItemManager(PlayerInventory inventory)
+    public PlayerInventory Inventory => playerInventory;
+
+    public List<VisualItem> AllVisualItems = new List<VisualItem>();
+
+
+    public ItemManager(PlayerInventory inventory, SignalBus signalBus)
     {
         playerInventory = inventory;
+        this.signalBus = signalBus;
+        signalBus.Subscribe<OnJobExcecutedSignal>(OnJobExecuted);
+        GetAllVisualItems();
+    }
 
+    private void GetAllVisualItems()
+    {
         Object[] items = Resources.LoadAll(ITEMS_PATH, typeof(ScriptableObject));
         foreach (VisualItem item in items)
         {
-            VisualItems.Add(item);
+            AllVisualItems.Add(item);
         }
     }
 
+    #region Currency
+
+    public void ChangeCurrencyAmount(int amount)
+    {
+        signalBus.Fire(new OnCurrencyChangedSignal());
+        playerInventory.ChangeCurrencyAmount(amount);
+    }
+    private void OnJobExecuted(OnJobExcecutedSignal signal)
+    {
+        ChangeCurrencyAmount(signal.Job.RewardAmount);
+    }
+
+    #endregion
     public bool HasItem(Item item)
     {
         return item.Quantity > 0;
@@ -34,7 +55,7 @@ public class ItemManager
 
     public void RefreshAvailableItems()
     {
-        availableItems = new List<VisualItem>(VisualItems);
+        availableItems = new List<VisualItem>(AllVisualItems);
         foreach(VisualItem item in playerInventory.VisualItems)
         {
             availableItems.Remove(item);
