@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc380bd5f3788c341bb8ac05c0d9e679, type: 3}
   m_Name: Yodler Shoes
   m_EditorClassIdentifier: 
-  type: 0
+  type: 2
   name: Yodler Shoes
   spriteSheet: {fileID: -915417879, guid: 85994e1df7c541b4db47061da502ae49, type: 3}
   displayableSprite: {fileID: -750900337, guid: 85994e1df7c541b4db47061da502ae49, type: 3}

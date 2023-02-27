@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Yodler Body
   m_EditorClassIdentifier: 
   type: 1
-  name: Yodler
+  name: Yodler Vest
   spriteSheet: {fileID: -778901334, guid: 7cbeeef02d523c74dab01767b4ce4a14, type: 3}
   displayableSprite: {fileID: -357852010, guid: 7cbeeef02d523c74dab01767b4ce4a14, type: 3}
   price: 50

@@ -6,5 +6,6 @@ public enum ScreenType
 {
     DialogueScreen,
     BuyItemScreen,
-    SellItemScreen
+    InventoryScreen,
+    WorkScreen,
 }

@@ -24,23 +24,23 @@ public class InventoryScreen : UISlidingScreen
 
     private List<InventoryItemView> itemViews = new List<InventoryItemView>();
 
-    protected override void SubscribeListeners()
+    protected override void OnAwake()
     {
-        base.SubscribeListeners();
+        base.OnAwake();
         sellButton.onClick.AddListener(SellItem);
         equipButton.onClick.AddListener(EquipItem);
         signalBus.Subscribe<OnInventoryItemSelectedSignal>(SelectItem);
     }
 
     #region Show/Hide
-    protected override void UnsubscribeListeners()
+    protected override void OnScreenDestroyed()
     {
-        base.UnsubscribeListeners();
+        base.OnScreenDestroyed();
         sellButton.onClick.RemoveAllListeners();
         equipButton.onClick.RemoveAllListeners();
     }
 
-    protected override void DoShowAnimation()
+    protected override void OnBeforeShow()
     {
         PlayerInventory inventory = itemManager.Inventory;
         //reminder to try find a better way
@@ -56,9 +56,10 @@ public class InventoryScreen : UISlidingScreen
             }
             InventoryItemView newItemView = inventoryItemViewFactory.Create(item);
             itemViews.Add(newItemView);
+            newItemView.Deselect();
         }
         //
-        base.DoShowAnimation();
+        base.OnBeforeShow();
     }
 
     protected override void Close()
@@ -85,7 +86,7 @@ public class InventoryScreen : UISlidingScreen
     {
         if (selectedItemView != null)
         {
-            selectedItemView.Diselect();
+            selectedItemView.Deselect();
         }
         signal.ItemView.Select();
     }

@@ -23,15 +23,15 @@ public class BuyItemScreen : UIScreen
 
     private VisualItem item;
 
-    protected override void SubscribeListeners()
+    protected override void OnAwake()
     {
-        base.SubscribeListeners();
+        base.OnAwake();
         buyButton.onClick.AddListener(BuyItem);
     }
 
-    protected override void UnsubscribeListeners()
+    protected override void OnScreenDestroyed()
     {
-        base.UnsubscribeListeners();
+        base.OnScreenDestroyed();
         buyButton.onClick.RemoveAllListeners();
     }
 
@@ -45,12 +45,12 @@ public class BuyItemScreen : UIScreen
         itemNameText.text = item.Name;
     }
 
-    protected override void DoHideAnimation()
+    protected override void OnAfterHide()
     {
         transform.LeanScale(Vector3.zero, animationDuration).setEase(ease).setOnComplete(Close);
     }
 
-    protected override void DoShowAnimation()
+    protected override void OnBeforeShow()
     {
         transform.LeanScale(Vector3.one, animationDuration).setEase(ease).setOnComplete(EnableButtons);
     }

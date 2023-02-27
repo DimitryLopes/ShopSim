@@ -12,12 +12,12 @@ public class UISlidingScreen : UIScreen
     private Transform screenTransform;
 
 
-    protected override void DoShowAnimation()
+    protected override void OnBeforeShow()
     {
         screenTransform.LeanMoveLocalY(endPosition.localPosition.y, animationDuration).setEase(ease).setOnComplete(EnableButtons);
     }
 
-    protected override void DoHideAnimation()
+    protected override void OnAfterHide()
     {
         screenTransform.LeanMoveLocalY(startPosition.localPosition.y, animationDuration).setEase(ease).setOnComplete(Close);
     }

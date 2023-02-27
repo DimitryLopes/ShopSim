@@ -22,20 +22,20 @@ public abstract class UIScreen : MonoBehaviour
 
     private void Awake()
     {
-        SubscribeListeners();
+        OnAwake();
     }
 
     private void OnDestroy()
     {
-        UnsubscribeListeners();
+        OnScreenDestroyed();
     }
 
-    protected virtual void SubscribeListeners()
+    protected virtual void OnAwake()
     {
         closeButton.onClick.AddListener(Hide);
     }
 
-    protected virtual void UnsubscribeListeners()
+    protected virtual void OnScreenDestroyed()
     {
         closeButton.onClick.RemoveAllListeners();
     }
@@ -45,10 +45,10 @@ public abstract class UIScreen : MonoBehaviour
         if (!isShown)
         {
             DisableButtons();
-            gameObject.SetActive(true);
             isShown = true;
             playerManager.AllowPlayerActions(false);
-            DoShowAnimation();
+            OnBeforeShow();
+            gameObject.SetActive(true);
         }
     }
 
@@ -58,7 +58,7 @@ public abstract class UIScreen : MonoBehaviour
         {
             playerManager.AllowPlayerActions(true);
             isShown = false;
-            DoHideAnimation();
+            OnAfterHide();
         }
     }
 
@@ -77,6 +77,6 @@ public abstract class UIScreen : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    protected abstract void DoShowAnimation();
-    protected abstract void DoHideAnimation();
+    protected abstract void OnBeforeShow();
+    protected abstract void OnAfterHide();
 }

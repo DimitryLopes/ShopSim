@@ -18,9 +18,10 @@ public class WorldManager
 
     public void RefreshMannequins()
     {
+        itemManager.RefreshAvailableItems();
         foreach(Mannequin mannequin in mannequins)
         {
-            VisualItem item = itemManager.FindAvailableVisualItemForMannequin(mannequins);
+            VisualItem item = itemManager.FindAvailableVisualItemForMannequin();
             mannequin.Dress(item);
         }
     }

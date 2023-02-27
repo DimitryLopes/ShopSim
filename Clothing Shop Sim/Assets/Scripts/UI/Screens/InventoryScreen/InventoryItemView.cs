@@ -49,7 +49,7 @@ public class InventoryItemView : MonoBehaviour
         isSelected = true;
     }
 
-    public void Diselect()
+    public void Deselect()
     {
         selectedFrame.color = deselectedColor;
         isSelected = false;

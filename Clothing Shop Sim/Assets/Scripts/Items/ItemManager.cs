@@ -14,6 +14,8 @@ public class ItemManager
 
     public List<VisualItem> VisualItems = new List<VisualItem>();
 
+    private List<VisualItem> availableItems;
+
     public ItemManager(PlayerInventory inventory)
     {
         playerInventory = inventory;
@@ -30,31 +32,30 @@ public class ItemManager
         return item.Quantity > 0;
     }
 
-    public VisualItem FindAvailableVisualItemForMannequin(List<Mannequin> mannequins)
+    public void RefreshAvailableItems()
     {
-        List<VisualItem> uncheckedItems = VisualItems;
-        foreach(Mannequin mannequin in mannequins)
+        availableItems = new List<VisualItem>(VisualItems);
+        foreach(VisualItem item in playerInventory.VisualItems)
         {
-            if (mannequin.Item != null)
-            {
-                if (uncheckedItems.Contains(mannequin.Item))
-                {
-                    uncheckedItems.Remove(mannequin.Item);
-                }
-            }
+            availableItems.Remove(item);
         }
+    }
 
+    public VisualItem FindAvailableVisualItemForMannequin()
+    {
         int randomIndex;
-        while(uncheckedItems.Count > 0)
+        while(availableItems.Count > 0)
         {
-            randomIndex = Random.Range(0, uncheckedItems.Count);
-            if (HasItem(uncheckedItems[randomIndex]))
+            randomIndex = Random.Range(0, availableItems.Count);
+            VisualItem item = availableItems[randomIndex];
+            if (HasItem(item))
             {
-                uncheckedItems.RemoveAt(randomIndex);
+                availableItems.RemoveAt(randomIndex);
             }
             else
             {
-                return uncheckedItems[randomIndex];
+                availableItems.RemoveAt(randomIndex);
+                return item;
             }
         }
         return null;
