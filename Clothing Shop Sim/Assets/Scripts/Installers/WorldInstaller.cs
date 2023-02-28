@@ -8,13 +8,15 @@ public class WorldInstaller : MonoInstaller
     private ItemManager itemManager;
 
     [SerializeField]
+    private GameObject listener;
+    [SerializeField]
     private Transform actionContainer;
     [SerializeField]
     private List<Mannequin> mannequins;
 
     public override void InstallBindings()
     {
-        WorldManager worldManager = new WorldManager(actionContainer, mannequins, itemManager);
+        WorldManager worldManager = new WorldManager(actionContainer, mannequins, itemManager, listener);
         Container.Bind<WorldManager>().FromInstance(worldManager).AsSingle();
     }
 }

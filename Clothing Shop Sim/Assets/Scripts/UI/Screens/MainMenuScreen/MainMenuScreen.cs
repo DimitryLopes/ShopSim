@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -14,8 +12,6 @@ public class MainMenuScreen : UISlidingScreen
     [SerializeField]
     private Button optionButton;
     [SerializeField]
-    private Button exitButton;
-    [SerializeField]
     private Button backButton;
     [SerializeField]
     private Transform mainMenuContainer;
@@ -24,10 +20,19 @@ public class MainMenuScreen : UISlidingScreen
 
     protected override void OnAwake()
     {
-        exitButton.onClick.AddListener(OnExitButtonClicked);
         playButton.onClick.AddListener(OnPlayButtonClicked);
         optionButton.onClick.AddListener(OnOptionButtonClicked);
         backButton.onClick.AddListener(OnBackButtonClicked);
+    }
+
+    private void OnEnable()
+    {
+        worldManager.SetListenerState(false);
+    }
+
+    protected void OnDisable()
+    {
+        worldManager.SetListenerState(true);
     }
 
     private void OnPlayButtonClicked()
@@ -47,10 +52,5 @@ public class MainMenuScreen : UISlidingScreen
         optionContainer.gameObject.SetActive(false);
         mainMenuContainer.gameObject.SetActive(true);
 
-    }
-
-    private void OnExitButtonClicked()
-    {
-        Application.Quit();
     }
 }

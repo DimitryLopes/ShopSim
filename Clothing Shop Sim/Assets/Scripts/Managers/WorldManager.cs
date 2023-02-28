@@ -5,14 +5,17 @@ using UnityEngine;
 public class WorldManager
 {
     private Transform actionContainer;
+    private GameObject listener;
     private List<Mannequin> mannequins;
     private ItemManager itemManager;
 
-    public WorldManager(Transform actionContainer, List<Mannequin> mannequins, ItemManager itemManager)
+    public WorldManager(Transform actionContainer, List<Mannequin> mannequins, ItemManager itemManager,
+        GameObject listener)
     {
         this.actionContainer = actionContainer;
         this.mannequins = mannequins;
         this.itemManager = itemManager;
+        this.listener = listener;
         RefreshMannequins();
     }
 
@@ -24,6 +27,11 @@ public class WorldManager
             VisualItem item = itemManager.FindAvailableVisualItemForMannequin();
             mannequin.Dress(item);
         }
+    }
+
+    public void SetListenerState(bool state)
+    {
+        listener.SetActive(state);
     }
 
     public void ActivateWorld()

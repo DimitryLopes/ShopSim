@@ -1,7 +1,5 @@
 using Zenject;
 using UnityEngine.UI;
-using System;
-using UnityEngine;
 
 public class UIAudioButton : Button
 {
@@ -10,8 +8,12 @@ public class UIAudioButton : Button
 
     private void Awake()
     {
-        Button button = GetComponent<Button>();
-        button.onClick.AddListener(PlaySound);
+        onClick.AddListener(PlaySound);
+    }
+
+    private void OnDestroy()
+    {
+        onClick.RemoveListener(PlaySound);
     }
 
     private void PlaySound()
