@@ -1,21 +1,22 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WorldManager
 {
+    private PlayerManager playerManager;
     private Transform actionContainer;
     private GameObject listener;
     private List<Mannequin> mannequins;
     private ItemManager itemManager;
 
     public WorldManager(Transform actionContainer, List<Mannequin> mannequins, ItemManager itemManager,
-        GameObject listener)
+        GameObject listener, PlayerManager playerManager)
     {
         this.actionContainer = actionContainer;
         this.mannequins = mannequins;
         this.itemManager = itemManager;
         this.listener = listener;
+        this.playerManager = playerManager;
         RefreshMannequins();
     }
 
@@ -34,8 +35,10 @@ public class WorldManager
         listener.SetActive(state);
     }
 
-    public void ActivateWorld()
+    public void SetWorldState(bool state)
     {
-        actionContainer.gameObject.SetActive(true);
+        playerManager.SetPlayerState(state);
+        playerManager.ResetPlayerPosition();
+        actionContainer.gameObject.SetActive(state);
     }
 }

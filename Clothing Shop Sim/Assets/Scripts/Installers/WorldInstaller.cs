@@ -5,6 +5,8 @@ using Zenject;
 public class WorldInstaller : MonoInstaller
 {
     [Inject]
+    private PlayerManager playerManager;
+    [Inject]
     private ItemManager itemManager;
 
     [SerializeField]
@@ -16,7 +18,7 @@ public class WorldInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        WorldManager worldManager = new WorldManager(actionContainer, mannequins, itemManager, listener);
+        WorldManager worldManager = new WorldManager(actionContainer, mannequins, itemManager, listener, playerManager);
         Container.Bind<WorldManager>().FromInstance(worldManager).AsSingle();
     }
 }

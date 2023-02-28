@@ -75,6 +75,10 @@ public class PlayerInventory
     #region Equip
     public void EquipItem(VisualItem visualItem)
     {
+        if (EquipedItems[visualItem.Type] != null)
+        {
+            EquipedItems[visualItem.Type].Equipped = false;
+        }
         EquipedItems[visualItem.Type] = visualItem;
         visualItem.Equipped = true;
         signalBus.Fire(new OnItemEquippedSignal(visualItem));

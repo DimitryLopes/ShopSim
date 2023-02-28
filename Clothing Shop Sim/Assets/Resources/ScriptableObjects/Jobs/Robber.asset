@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4992d231fdba9f3459c87b5b3b530e3d, type: 3}
+  m_Name: Robber
+  m_EditorClassIdentifier: 
+  itemRequirements:
+  - {fileID: 11400000, guid: 42b6cbb37d431d5449d8cf89d6ad27d3, type: 2}
+  - {fileID: 11400000, guid: da2152b30a105c64cb46273d1929538a, type: 2}
+  - {fileID: 11400000, guid: 04fffd79638db6746956785a2cf7f7b1, type: 2}
+  rewardAmount: 2
+  jobName: Robber
+  jobWorkButtonName: Don't

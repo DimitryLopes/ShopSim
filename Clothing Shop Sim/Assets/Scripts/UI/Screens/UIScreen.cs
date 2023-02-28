@@ -97,7 +97,7 @@ public abstract class UIScreen : MonoBehaviour
         uiManager.AllowClick(false);
     }
 
-    protected void EnableButtons()
+    protected virtual void OnAfterShow()
     {
         uiManager.AllowClick(true);
     }

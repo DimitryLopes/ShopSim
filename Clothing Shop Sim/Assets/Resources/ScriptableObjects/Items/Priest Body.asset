@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Priest Body
   m_EditorClassIdentifier: 
   quantity: 0
-  type: 0
+  type: 1
   name: Prayer's Robe
   spriteSheet:
   - {fileID: 466461257, guid: 55cd733098b376b4ea7233c519b78480, type: 3}

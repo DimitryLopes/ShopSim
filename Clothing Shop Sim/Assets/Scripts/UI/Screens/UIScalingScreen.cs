@@ -9,6 +9,6 @@ public class UIScalingScreen : UIScreen
 
     protected override void OnBeforeShow()
     {
-        screenTransform.LeanScale(Vector3.one, animationDuration).setEase(ease).setOnComplete(EnableButtons);
+        screenTransform.LeanScale(Vector3.one, animationDuration).setEase(ease).setOnComplete(OnAfterShow);
     }
 }

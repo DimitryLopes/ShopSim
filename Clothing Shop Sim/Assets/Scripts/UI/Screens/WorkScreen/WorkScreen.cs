@@ -10,6 +10,8 @@ public class WorkScreen : UISlidingScreen
     [Inject]
     private JobManager jobManager;
     [Inject]
+    private PlayerManager playerManager;
+    [Inject]
     private ItemManager itemManager;
     [Inject]
     private JobView.Factory jobViewFactory;
@@ -27,6 +29,14 @@ public class WorkScreen : UISlidingScreen
                 view.transform.SetParent(jobsContainer, false);
             }
         }
+        playerManager.SetPlayerState(false);
         base.OnBeforeShow();
+    }
+
+    protected override void OnBeforeHide()
+    {
+        playerManager.SetPlayerState(true);
+        playerManager.ResetPlayerPosition();
+        base.OnBeforeHide();
     }
 }

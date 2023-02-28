@@ -38,13 +38,18 @@ public class MainMenuScreen : UISlidingScreen
     private void OnPlayButtonClicked()
     {
         Hide();
-        worldManager.ActivateWorld();
+        worldManager.SetWorldState(true);
     }
 
     private void OnOptionButtonClicked()
     {
         optionContainer.gameObject.SetActive(true);
         mainMenuContainer.gameObject.SetActive(false);
+    }
+    
+    protected override void OnAfterShow()
+    {
+        worldManager.SetWorldState(false);
     }
 
     private void OnBackButtonClicked()

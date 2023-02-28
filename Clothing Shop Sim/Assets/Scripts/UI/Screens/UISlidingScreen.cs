@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UISlidingScreen : UIScreen
@@ -12,7 +10,7 @@ public class UISlidingScreen : UIScreen
 
     protected override void OnBeforeShow()
     {
-        screenTransform.LeanMoveLocal(endPosition.localPosition, animationDuration).setEase(ease).setOnComplete(EnableButtons);
+        screenTransform.LeanMoveLocal(endPosition.localPosition, animationDuration).setEase(ease).setOnComplete(OnAfterShow);
     }
 
     protected override void OnBeforeHide()
