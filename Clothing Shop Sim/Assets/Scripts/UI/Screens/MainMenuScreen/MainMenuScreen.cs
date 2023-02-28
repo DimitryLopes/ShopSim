@@ -22,7 +22,7 @@ public class MainMenuScreen : UISlidingScreen
     [SerializeField]
     private Transform optionContainer;
 
-    private void Start()
+    protected override void OnAwake()
     {
         exitButton.onClick.AddListener(OnExitButtonClicked);
         playButton.onClick.AddListener(OnPlayButtonClicked);

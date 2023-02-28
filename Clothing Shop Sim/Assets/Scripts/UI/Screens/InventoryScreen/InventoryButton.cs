@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +8,9 @@ public class InventoryButton : MonoBehaviour
     [Inject]
     private SignalBus signalBus;
     [Inject]
-    protected ItemManager itemManager;
+    private AudioManager audioManager;
+    [Inject]
+    private ItemManager itemManager;
 
     [SerializeField]
     private string toggledText;
@@ -60,6 +60,7 @@ public class InventoryButton : MonoBehaviour
             buttonText.text = untoggledText;
             button.onClick.AddListener(OnUntoggledClick);
         }
+        button.onClick.AddListener(audioManager.PlayButtonAudio);
     }
 
     private void OnScreenOpened(OnScreenOpenedSignal signal)

@@ -9,7 +9,14 @@ public abstract class UIScreen : MonoBehaviour
     [Inject]
     private SignalBus signalBus;
     [Inject]
+    private AudioManager audioManager;
+    [Inject]
     private UIManager uiManager;
+
+    [SerializeField, Header("Sound")]
+    private AudioClip openAudioClip;
+    [SerializeField]
+    private AudioClip closeAudioClip;
 
     [SerializeField, Header("Animation")]
     protected float animationDuration;
@@ -36,6 +43,7 @@ public abstract class UIScreen : MonoBehaviour
     protected virtual void OnAwake()
     {
         closeButton.onClick.AddListener(Hide);
+        closeButton.onClick.AddListener(PlayCloseAudio);
     }
 
     protected virtual void OnScreenDestroyed()
@@ -47,13 +55,14 @@ public abstract class UIScreen : MonoBehaviour
     {
         if (uiManager.CurrentOpenedScreen != this && CanShow)
         {
+            isFirstShow = false;
             CanShow = false;
-            signalBus.Fire(new OnScreenOpenedSignal(this));
             DisableButtons();
             OnBeforeShow();
+            PlayAudio(openAudioClip);
             playerManager.AllowPlayerActions(false);
-            isFirstShow = false;
             gameObject.SetActive(true);
+            signalBus.Fire(new OnScreenOpenedSignal(this));
         }
     }
 
@@ -61,10 +70,20 @@ public abstract class UIScreen : MonoBehaviour
     {
         if (uiManager.CurrentOpenedScreen == this)
         {
-            signalBus.Fire(new OnScreenClosedSignal(this));
+            OnBeforeHide();
             playerManager.AllowPlayerActions(true);
-            OnAfterHide();
+            signalBus.Fire(new OnScreenClosedSignal(this));
         }
+    }
+
+    private void PlayAudio(AudioClip clip)
+    {
+        audioManager.PlayAudio(clip);
+    }
+
+    private void PlayCloseAudio()
+    {
+        audioManager.PlayAudio(closeAudioClip);
     }
 
     protected void DisableButtons()
@@ -84,5 +103,5 @@ public abstract class UIScreen : MonoBehaviour
     }
 
     protected abstract void OnBeforeShow();
-    protected abstract void OnAfterHide();
+    protected abstract void OnBeforeHide();
 }
