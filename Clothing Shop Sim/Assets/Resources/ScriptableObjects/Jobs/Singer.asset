@@ -16,5 +16,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0863c1d12618eab4e8fb0b4bcf5d72d4, type: 2}
   - {fileID: 11400000, guid: 04ebf03b70d7b294089a547269e0c973, type: 2}
   rewardAmount: 150
-  jobName: Yodler Singer
+  jobName: Yodeler Singer
   jobWorkButtonName: Sing!
