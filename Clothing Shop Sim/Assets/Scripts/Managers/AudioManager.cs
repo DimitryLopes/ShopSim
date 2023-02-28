@@ -33,6 +33,6 @@ public class AudioManager
 
     public void ChangeSFXVolume(float volume)
     {
-        PlayAudio(buttonClip);
+        sfxSource.volume = volume;
     }
 }
