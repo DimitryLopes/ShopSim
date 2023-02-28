@@ -25,43 +25,50 @@ public class InventoryButton : MonoBehaviour
 
     private void Awake()
     {
-        signalBus.Subscribe<OnInventoryItemSelectedSignal>(ChangeState);
+        signalBus.Subscribe<OnInventoryItemSelectedSignal>(OnItemSelected);
     }
 
     private void OnDestroy()
     {
-        signalBus.Unsubscribe<OnInventoryItemSelectedSignal>(ChangeState);
+        signalBus.Unsubscribe<OnInventoryItemSelectedSignal>(OnItemSelected);
     }
 
-    private void ChangeState(OnInventoryItemSelectedSignal signal)
+    private void OnItemSelected(OnInventoryItemSelectedSignal signal)
     {
-        button.onClick.RemoveAllListeners();
         bool hasItemSelected = signal.ItemView != null;
         if (hasItemSelected)
         {
-            if (signal.ItemView.Item.Equipped)
-            {
-                buttonText.text = toggledText;
-                button.onClick.AddListener(OnToggledClick);
-            }
-            else
-            {
-                buttonText.text = untoggledText;
-                button.onClick.AddListener(OnUntoggledClick);
-            }
-
+            bool toggled = signal.ItemView.Item.Equipped;
+            ChangeState(toggled);
             selectedItem = signal.ItemView.Item;
         }
         gameObject.SetActive(hasItemSelected);
     }
 
+    private void ChangeState(bool toggled)
+    {
+        button.onClick.RemoveAllListeners();
+        if (toggled)
+        {
+            buttonText.text = toggledText;
+            button.onClick.AddListener(OnToggledClick);
+        }
+        else
+        {
+            buttonText.text = untoggledText;
+            button.onClick.AddListener(OnUntoggledClick);
+        }
+    }
+
     private void OnToggledClick()
     {
         itemManager.Inventory.Unequip(selectedItem.Type);
+        ChangeState(false);
     }
 
     private void OnUntoggledClick()
     {
         itemManager.Inventory.EquipItem(selectedItem);
+        ChangeState(true);
     }
 }

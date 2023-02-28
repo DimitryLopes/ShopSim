@@ -34,17 +34,16 @@ public class Player : MonoBehaviour
     [SerializeField]
     private SpriteRenderer shoesRenderer;
     private int animationFrameIndex;
-    //this is because animator triggers both animations when player is moving diagonally, that way the clothes won't
-    //follow the wrong animation
-    private bool canTriggerClothAnimation = true;
     private Dictionary<ItemType, SpriteRenderer> clothRenderers = new Dictionary<ItemType, SpriteRenderer>();
 
     [SerializeField, Space, Header("Interaction")]
+    private LayerMask interactableLayer;
+    [SerializeField]
     private string interactableTag;
     [SerializeField]
     private float interactionRange;
     [SerializeField]
-    private SpriteRenderer playerRenderer;
+    private Transform interactionStartPoint;
     private Vector2 lastMovement;
     private bool canInteract = true;
 
@@ -67,16 +66,12 @@ public class Player : MonoBehaviour
             HandleInteraction();
         }
 
-
-        HandleAnimation();
-    }
-
-    private void LateUpdate()
-    {
         if (canMove)
         {
             HandleMovement();
         }
+
+        HandleAnimation();
     }
 
     private void Start()
@@ -95,14 +90,11 @@ public class Player : MonoBehaviour
 
     private void HandleInteraction()
     {
-        Debug.DrawRay(playerRenderer.bounds.center, lastMovement.normalized * interactionRange, Color.red);
-        Debug.DrawRay(playerRenderer.bounds.extents, lastMovement.normalized * interactionRange, Color.blue);
-        Debug.DrawRay(playerRenderer.bounds.min, lastMovement.normalized * interactionRange, Color.green);
-        Debug.DrawRay(playerRenderer.bounds.size, lastMovement.normalized * interactionRange, Color.black);
+        Debug.DrawRay(interactionStartPoint.position, lastMovement.normalized * interactionRange, Color.red);
         //settings to change config here, maybe?
         if (Input.GetKeyDown(KeyCode.E))
         {
-            RaycastHit2D hit = Physics2D.Raycast(playerRenderer.bounds.min, lastMovement.normalized, interactionRange);
+            RaycastHit2D hit = Physics2D.Raycast(interactionStartPoint.position, lastMovement.normalized, interactionRange, interactableLayer);
             if (hit)
             {
                 if (hit.collider.gameObject.tag == interactableTag)
@@ -144,7 +136,6 @@ public class Player : MonoBehaviour
         animator.SetFloat(HORIZONTAL_AXIS, movementVector.x);
         animator.SetFloat(VERTICAL_AXIS, movementVector.y);
         animator.SetFloat(ANIMATION_KEY_SPEED, movementVector.sqrMagnitude);
-        canTriggerClothAnimation = true;
 
         if(movementVector != Vector2.zero)
         {
@@ -167,27 +158,23 @@ public class Player : MonoBehaviour
     //I'm not sure if this is legal. Called on animations
     public void OnSpriteChanged(int index)
     {
-        if (canTriggerClothAnimation)
+        animationFrameIndex = index;
+        VisualItem headItem = itemManager.Inventory.EquipedItems[ItemType.HeadClothing];
+        if (headItem != null)
         {
-            canTriggerClothAnimation = false;
-            animationFrameIndex = index;
-            VisualItem headItem = itemManager.Inventory.EquipedItems[ItemType.HeadClothing];
-            if (headItem != null)
-            {
-                hatRenderer.sprite = headItem.SpriteSheet[animationFrameIndex];
-            }
+            hatRenderer.sprite = headItem.SpriteSheet[animationFrameIndex];
+        }
 
-            VisualItem bodyItem = itemManager.Inventory.EquipedItems[ItemType.BodyClothing];
-            if (bodyItem != null)
-            {
-                bodyRenderer.sprite = bodyItem.SpriteSheet[animationFrameIndex];
-            }
+        VisualItem bodyItem = itemManager.Inventory.EquipedItems[ItemType.BodyClothing];
+        if (bodyItem != null)
+        {
+            bodyRenderer.sprite = bodyItem.SpriteSheet[animationFrameIndex];
+        }
 
-            VisualItem shoesItem = itemManager.Inventory.EquipedItems[ItemType.ShoesClothing];
-            if (shoesItem != null)
-            {
-                shoesRenderer.sprite = shoesItem.SpriteSheet[animationFrameIndex];
-            }
+        VisualItem shoesItem = itemManager.Inventory.EquipedItems[ItemType.ShoesClothing];
+        if (shoesItem != null)
+        {
+            shoesRenderer.sprite = shoesItem.SpriteSheet[animationFrameIndex];
         }
     }
     #endregion
