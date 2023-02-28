@@ -25,4 +25,9 @@ public class WorldManager
             mannequin.Dress(item);
         }
     }
+
+    public void ActivateWorld()
+    {
+        actionContainer.gameObject.SetActive(true);
+    }
 }
