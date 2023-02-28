@@ -26,11 +26,13 @@ public class InventoryButton : MonoBehaviour
     private void Awake()
     {
         signalBus.Subscribe<OnInventoryItemSelectedSignal>(OnItemSelected);
+        signalBus.Subscribe<OnScreenOpenedSignal>(OnScreenOpened);
     }
 
     private void OnDestroy()
     {
         signalBus.Unsubscribe<OnInventoryItemSelectedSignal>(OnItemSelected);
+        signalBus.Unsubscribe<OnScreenOpenedSignal>(OnScreenOpened);
     }
 
     private void OnItemSelected(OnInventoryItemSelectedSignal signal)
@@ -57,6 +59,14 @@ public class InventoryButton : MonoBehaviour
         {
             buttonText.text = untoggledText;
             button.onClick.AddListener(OnUntoggledClick);
+        }
+    }
+
+    private void OnScreenOpened(OnScreenOpenedSignal signal)
+    {
+        if(signal.Screen is InventoryScreen)
+        {
+            gameObject.SetActive(false);
         }
     }
 

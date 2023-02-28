@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using UnityEngine.UI;
@@ -9,17 +7,21 @@ public abstract class UIScreen : MonoBehaviour
     [Inject]
     private PlayerManager playerManager;
     [Inject]
+    private SignalBus signalBus;
+    [Inject]
     private UIManager uiManager;
 
-    [SerializeField]
+    [SerializeField, Header("Animation")]
     protected float animationDuration;
     [SerializeField]
-    private Button closeButton;
-    [SerializeField]
     protected LeanTweenType ease;
+    [SerializeField]
+    protected Transform screenTransform;
+    [SerializeField, Space]
+    private Button closeButton;
 
-    bool isShown;
     protected bool isFirstShow = true;
+    public bool CanShow { get; private set; } = true;
 
     private void Awake()
     {
@@ -43,11 +45,12 @@ public abstract class UIScreen : MonoBehaviour
 
     public void Show()
     {
-        if (!isShown)
+        if (uiManager.CurrentOpenedScreen != this && CanShow)
         {
+            CanShow = false;
+            signalBus.Fire(new OnScreenOpenedSignal(this));
             DisableButtons();
             OnBeforeShow();
-            isShown = true;
             playerManager.AllowPlayerActions(false);
             isFirstShow = false;
             gameObject.SetActive(true);
@@ -56,10 +59,10 @@ public abstract class UIScreen : MonoBehaviour
 
     public void Hide()
     {
-        if (isShown)
+        if (uiManager.CurrentOpenedScreen == this)
         {
+            signalBus.Fire(new OnScreenClosedSignal(this));
             playerManager.AllowPlayerActions(true);
-            isShown = false;
             OnAfterHide();
         }
     }
@@ -77,6 +80,7 @@ public abstract class UIScreen : MonoBehaviour
     protected virtual void Close()
     {
         gameObject.SetActive(false);
+        CanShow = true;
     }
 
     protected abstract void OnBeforeShow();

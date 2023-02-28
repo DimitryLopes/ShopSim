@@ -8,4 +8,6 @@ public enum ScreenType
     BuyItemScreen,
     InventoryScreen,
     WorkScreen,
+    MainMenuScreen,
+    PauseScreen,
 }

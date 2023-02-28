@@ -8,8 +8,6 @@ public class UISlidingScreen : UIScreen
     private Transform startPosition;
     [SerializeField]
     private Transform endPosition;
-    [SerializeField]
-    private Transform screenTransform;
 
 
     protected override void OnBeforeShow()

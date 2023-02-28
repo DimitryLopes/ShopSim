@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Device;
 using Zenject;
 using static UnityEditor.Progress;
 
@@ -28,13 +29,9 @@ public class Player : MonoBehaviour
     [SerializeField, Header("Animation")]
     private Animator animator;
     [SerializeField]
-    private SpriteRenderer hatRenderer;
-    [SerializeField]
-    private SpriteRenderer bodyRenderer;
-    [SerializeField]
-    private SpriteRenderer shoesRenderer;
+    private PlayerClothes clothes;
     private int animationFrameIndex;
-    private Dictionary<ItemType, SpriteRenderer> clothRenderers = new Dictionary<ItemType, SpriteRenderer>();
+    private Dictionary<ItemType, SpriteRenderer> Clothes;
 
     [SerializeField, Space, Header("Interaction")]
     private LayerMask interactableLayer;
@@ -49,6 +46,25 @@ public class Player : MonoBehaviour
     {
         signalBus.Subscribe<OnItemEquippedSignal>(OnItemEquiped);
         signalBus.Subscribe<OnItemUnequippedSignal>(OnItemUnequiped);
+    }
+
+    private void Start()
+    {
+        CreateClothesDictionary();
+    }
+
+    private void CreateClothesDictionary()
+    {
+        Clothes = new Dictionary<ItemType, SpriteRenderer>();
+        for (int i = 0; i < clothes.Renderers.Count; i++)
+        {
+            Clothes.Add(clothes.Types[i], clothes.Renderers[i]);
+            VisualItem item = itemManager.Inventory.EquipedItems[clothes.Types[i]];
+            if (item != null)
+            {
+                EquipItem(item);
+            }
+        }
     }
 
     private void OnDisable()
@@ -72,13 +88,7 @@ public class Player : MonoBehaviour
         HandleAnimation();
     }
 
-    private void Start()
-    {
-        //doesn't need to be hardcoded, but I'll look into later
-        clothRenderers.Add(ItemType.HeadClothing, hatRenderer);
-        clothRenderers.Add(ItemType.BodyClothing, bodyRenderer);
-        clothRenderers.Add(ItemType.ShoesClothing, shoesRenderer);
-    }
+    
 
     #region interaction
     public void SetInteractionState(bool state)
@@ -141,13 +151,17 @@ public class Player : MonoBehaviour
 
     private void OnItemEquiped(OnItemEquippedSignal signal)
     {
-        VisualItem item = itemManager.Inventory.EquipedItems[signal.Item.Type];
-        clothRenderers[item.Type].sprite = item.SpriteSheet[animationFrameIndex];
+        EquipItem(signal.Item);
+    }
+
+    private void EquipItem(VisualItem item)
+    {
+        Clothes[item.Type].sprite = item.SpriteSheet[animationFrameIndex];
     }
 
     private void OnItemUnequiped(OnItemUnequippedSignal signal)
     {
-        clothRenderers[signal.Type].sprite = null;
+        Clothes[signal.Type].sprite = null;
     }
 
     //I'm not sure if this is legal. Called on animations
@@ -157,19 +171,19 @@ public class Player : MonoBehaviour
         VisualItem headItem = itemManager.Inventory.EquipedItems[ItemType.HeadClothing];
         if (headItem != null)
         {
-            hatRenderer.sprite = headItem.SpriteSheet[animationFrameIndex];
+            Clothes[ItemType.HeadClothing].sprite = headItem.SpriteSheet[animationFrameIndex];
         }
 
         VisualItem bodyItem = itemManager.Inventory.EquipedItems[ItemType.BodyClothing];
         if (bodyItem != null)
         {
-            bodyRenderer.sprite = bodyItem.SpriteSheet[animationFrameIndex];
+            Clothes[ItemType.BodyClothing].sprite = bodyItem.SpriteSheet[animationFrameIndex];
         }
 
         VisualItem shoesItem = itemManager.Inventory.EquipedItems[ItemType.ShoesClothing];
         if (shoesItem != null)
         {
-            shoesRenderer.sprite = shoesItem.SpriteSheet[animationFrameIndex];
+            Clothes[ItemType.ShoesClothing].sprite = shoesItem.SpriteSheet[animationFrameIndex];
         }
     }
     #endregion
@@ -184,4 +198,17 @@ public class Player : MonoBehaviour
             rigidbody2D.velocity = Vector2.zero;
         }
     }
+
+    [Serializable]
+    private struct PlayerClothes
+    {
+        [SerializeField]
+        private List<SpriteRenderer> renderers;
+        [SerializeField]
+        private List<ItemType> types;
+
+        public List<SpriteRenderer> Renderers => renderers;
+        public List<ItemType> Types => types;
+    }
+
 }

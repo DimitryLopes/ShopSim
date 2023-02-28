@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class BuyItemScreen : UIScreen
+public class BuyItemScreen : UIScalingScreen
 {
     [Inject]
     private SignalBus signalBus;
@@ -45,16 +43,6 @@ public class BuyItemScreen : UIScreen
         Sprite itemIconSprite = item.GetSpriteIcon();
         itemTypeIcon.DisplayItem(itemIconSprite);
         itemNameText.text = item.Name;
-    }
-
-    protected override void OnAfterHide()
-    {
-        transform.LeanScale(Vector3.zero, animationDuration).setEase(ease).setOnComplete(Close);
-    }
-
-    protected override void OnBeforeShow()
-    {
-        transform.LeanScale(Vector3.one, animationDuration).setEase(ease).setOnComplete(EnableButtons);
     }
 
     private void BuyItem()

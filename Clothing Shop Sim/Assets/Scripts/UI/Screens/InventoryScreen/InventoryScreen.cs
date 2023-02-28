@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +17,7 @@ public class InventoryScreen : UISlidingScreen
     [SerializeField]
     private Button sellButton;
     [SerializeField]
-    private InventoryButton equipButton;
+    private Transform equipButtonContainer;
 
     private InventoryItemView selectedItemView;
 
@@ -65,7 +64,7 @@ public class InventoryScreen : UISlidingScreen
     public void SetUp(bool isStore)
     {
         sellButton.gameObject.SetActive(isStore);
-        equipButton.gameObject.SetActive(false);
+        equipButtonContainer.gameObject.SetActive(!isStore);
     }
 
     protected override void Close()
