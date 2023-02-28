@@ -39,8 +39,6 @@ public class Player : MonoBehaviour
     [SerializeField, Space, Header("Interaction")]
     private LayerMask interactableLayer;
     [SerializeField]
-    private string interactableTag;
-    [SerializeField]
     private float interactionRange;
     [SerializeField]
     private Transform interactionStartPoint;
@@ -97,13 +95,10 @@ public class Player : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(interactionStartPoint.position, lastMovement.normalized, interactionRange, interactableLayer);
             if (hit)
             {
-                if (hit.collider.gameObject.tag == interactableTag)
+                IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
+                if (interactable != null)
                 {
-                    IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
-                    if (interactable != null)
-                    {
-                        interactable.Interact();
-                    }
+                    interactable.Interact();
                 }
             }
         }
