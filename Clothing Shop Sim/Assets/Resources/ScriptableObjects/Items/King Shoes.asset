@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc380bd5f3788c341bb8ac05c0d9e679, type: 3}
+  m_Name: King Shoes
+  m_EditorClassIdentifier: 
+  quantity: 0
+  type: 2
+  name: King's Shoes
+  spriteSheet:
+  - {fileID: -1959459361, guid: dd2a8c41ea497704db1af91b1668c3d3, type: 3}
+  - {fileID: -143380566, guid: dd2a8c41ea497704db1af91b1668c3d3, type: 3}
+  - {fileID: -1579627944, guid: dd2a8c41ea497704db1af91b1668c3d3, type: 3}
+  - {fileID: -167958635, guid: dd2a8c41ea497704db1af91b1668c3d3, type: 3}
+  - {fileID: 318089653, guid: dd2a8c41ea497704db1af91b1668c3d3, type: 3}
+  - {fileID: -1775720195, guid: dd2a8c41ea497704db1af91b1668c3d3, type: 3}
+  - {fileID: -2088615573, guid: dd2a8c41ea497704db1af91b1668c3d3, type: 3}
+  - {fileID: -1625375484, guid: dd2a8c41ea497704db1af91b1668c3d3, type: 3}
+  - {fileID: 611232731, guid: dd2a8c41ea497704db1af91b1668c3d3, type: 3}
+  - {fileID: -1894741460, guid: dd2a8c41ea497704db1af91b1668c3d3, type: 3}
+  - {fileID: -1761032275, guid: dd2a8c41ea497704db1af91b1668c3d3, type: 3}
+  - {fileID: 980220501, guid: dd2a8c41ea497704db1af91b1668c3d3, type: 3}
+  iconSprite: {fileID: 21300000, guid: d4f35da4d79a2a04ca36678b01d4704c, type: 3}
+  price: 5000
+  equipped: 0

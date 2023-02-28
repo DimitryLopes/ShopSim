@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Item", menuName = "ScriptableObjects/Cloth")]
@@ -9,16 +6,16 @@ public class VisualItem : Item
     [SerializeField]
     private Sprite[] spriteSheet;
     [SerializeField]
-    private Sprite mannequinDisplayable;
-    [SerializeField]
     private Sprite iconSprite;
     [SerializeField]
     private int price;
+    [SerializeField]
+    private bool equipped;
 
-    public bool Equipped { get; set; }
+    public bool Equipped { get => equipped; set => equipped = value; }
 
     public int Price => price;
     public Sprite[] SpriteSheet => spriteSheet;
     public Sprite ItemIcon => iconSprite;
-    public Sprite MannequinDisplayable => mannequinDisplayable;
+    public Sprite MannequinDisplayable => spriteSheet[7];
 }

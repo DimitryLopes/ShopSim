@@ -19,7 +19,6 @@ public class WorkScreen : UISlidingScreen
 
     protected override void OnBeforeShow()
     {
-        base.OnBeforeShow();
         if (isFirstShow)
         {
             foreach (Job job in jobManager.AllJobs)
@@ -28,5 +27,6 @@ public class WorkScreen : UISlidingScreen
                 view.transform.SetParent(jobsContainer, false);
             }
         }
+        base.OnBeforeShow();
     }
 }

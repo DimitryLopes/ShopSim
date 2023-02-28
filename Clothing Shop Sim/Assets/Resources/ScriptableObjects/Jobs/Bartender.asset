@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4992d231fdba9f3459c87b5b3b530e3d, type: 3}
-  m_Name: Singer
+  m_Name: Bartender
   m_EditorClassIdentifier: 
   itemRequirements:
-  - {fileID: 11400000, guid: 0863c1d12618eab4e8fb0b4bcf5d72d4, type: 2}
-  - {fileID: 11400000, guid: 04ebf03b70d7b294089a547269e0c973, type: 2}
-  rewardAmount: 35
-  jobName: Yodeler Singer
-  jobWorkButtonName: Sing!
+  - {fileID: 11400000, guid: 65394205d9d2a1548a30e7e070b9a702, type: 2}
+  - {fileID: 11400000, guid: bc182daba21f62a41a3ef2fd167407c4, type: 2}
+  rewardAmount: 5
+  jobName: Bartender
+  jobWorkButtonName: Attend

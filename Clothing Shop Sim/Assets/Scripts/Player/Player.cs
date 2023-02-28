@@ -1,10 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Device;
 using Zenject;
-using static UnityEditor.Progress;
 
 public class Player : MonoBehaviour
 {

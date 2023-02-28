@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc380bd5f3788c341bb8ac05c0d9e679, type: 3}
+  m_Name: Bartender Shoes
+  m_EditorClassIdentifier: 
+  quantity: 0
+  type: 2
+  name: Bartender Shoes
+  spriteSheet:
+  - {fileID: -1086590045, guid: 6dae811ce56fe744ba394ce385bdb796, type: 3}
+  - {fileID: -216861430, guid: 6dae811ce56fe744ba394ce385bdb796, type: 3}
+  - {fileID: -1872307547, guid: 6dae811ce56fe744ba394ce385bdb796, type: 3}
+  - {fileID: -630820569, guid: 6dae811ce56fe744ba394ce385bdb796, type: 3}
+  - {fileID: 222269618, guid: 6dae811ce56fe744ba394ce385bdb796, type: 3}
+  - {fileID: 1845449326, guid: 6dae811ce56fe744ba394ce385bdb796, type: 3}
+  - {fileID: -776234094, guid: 6dae811ce56fe744ba394ce385bdb796, type: 3}
+  - {fileID: 1828714914, guid: 6dae811ce56fe744ba394ce385bdb796, type: 3}
+  - {fileID: 113785397, guid: 6dae811ce56fe744ba394ce385bdb796, type: 3}
+  - {fileID: -52811197, guid: 6dae811ce56fe744ba394ce385bdb796, type: 3}
+  - {fileID: 1450448781, guid: 6dae811ce56fe744ba394ce385bdb796, type: 3}
+  - {fileID: 713140280, guid: 6dae811ce56fe744ba394ce385bdb796, type: 3}
+  iconSprite: {fileID: 21300000, guid: 7cc88976a80b85a408b00e08aa836859, type: 3}
+  price: 20
+  equipped: 0

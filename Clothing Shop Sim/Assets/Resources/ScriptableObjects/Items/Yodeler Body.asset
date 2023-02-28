@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc380bd5f3788c341bb8ac05c0d9e679, type: 3}
-  m_Name: Yodler Body
+  m_Name: Yodeler Body
   m_EditorClassIdentifier: 
   quantity: 0
   type: 1
@@ -28,6 +28,6 @@ MonoBehaviour:
   - {fileID: -480647560, guid: 7cbeeef02d523c74dab01767b4ce4a14, type: 3}
   - {fileID: 602861473, guid: 7cbeeef02d523c74dab01767b4ce4a14, type: 3}
   - {fileID: 45452621, guid: 7cbeeef02d523c74dab01767b4ce4a14, type: 3}
-  mannequinDisplayable: {fileID: -357852010, guid: 7cbeeef02d523c74dab01767b4ce4a14, type: 3}
   iconSprite: {fileID: 21300000, guid: 829addead2db9434ca9707cf464aa1c5, type: 3}
-  price: 50
+  price: 200
+  equipped: 0
