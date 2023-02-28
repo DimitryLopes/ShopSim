@@ -85,8 +85,6 @@ public class Player : MonoBehaviour
         HandleAnimation();
     }
 
-    
-
     #region interaction
     public void SetInteractionState(bool state)
     {
