@@ -49,6 +49,7 @@ public class MainMenuScreen : UISlidingScreen
     
     protected override void OnAfterShow()
     {
+        base.OnAfterShow();
         worldManager.SetWorldState(false);
     }
 
