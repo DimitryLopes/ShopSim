@@ -1,26 +1,39 @@
 using UnityEngine;
-
+    
 public class AudioManager 
 {
-    private AudioSource audioSource;
+    private AudioSource sfxSource;
+    private AudioSource bgmSource;
     private AudioClip buttonClip;
 
-    public AudioManager(AudioSource source, AudioClip buttonClip)
+    public AudioManager(AudioSource sfxSource, AudioSource bgmSource, AudioClip buttonClip)
     {
-        audioSource = source;
+        this.sfxSource = sfxSource;
+        this.bgmSource = bgmSource;
         this.buttonClip = buttonClip;
     }
 
     public void PlayButtonAudio()
     {
-            audioSource.PlayOneShot(buttonClip);
+            sfxSource.PlayOneShot(buttonClip);
     }
 
     public void PlayAudio(AudioClip audioClip)
     {
         if (audioClip != null)
         {
-            audioSource.PlayOneShot(audioClip);
+            sfxSource.PlayOneShot(audioClip);
         }
+    }
+
+    public void ChangeBGMVolume(float volume)
+    {
+        bgmSource.volume = volume;
+    }
+
+    public void ChangeSFXVolume(float volume)
+    {
+        sfxSource.volume = volume;
+        PlayAudio(buttonClip);
     }
 }
