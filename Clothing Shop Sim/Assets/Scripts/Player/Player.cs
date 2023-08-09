@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
             lastMovement = movementVector;
         }
         
-        rigidbody2D.velocity = movementVector.normalized * movementSpeed * Time.deltaTime;
+        rigidbody2D.velocity = movementVector.normalized * movementSpeed;
     }
     #endregion
 
