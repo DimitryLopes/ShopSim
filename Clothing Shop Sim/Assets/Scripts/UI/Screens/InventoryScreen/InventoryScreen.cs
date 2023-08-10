@@ -92,7 +92,7 @@ public class InventoryScreen : UISlidingScreen
         if (selectedItemView != null)
         {
             itemManager.RemoveItem(selectedItemView.Item);
-            itemManager.ChangeCurrencyAmount(selectedItemView.Item.Price / 3); //arbitrary value
+            itemManager.ChangeCurrencyAmount(selectedItemView.Item.Price);
             selectedItemView.gameObject.SetActive(false);
             selectedItemView = null;
         }
