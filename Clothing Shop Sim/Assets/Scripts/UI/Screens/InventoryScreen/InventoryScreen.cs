@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,6 +19,8 @@ public class InventoryScreen : UISlidingScreen
     private Button sellButton;
     [SerializeField]
     private Transform equipButtonContainer;
+    [SerializeField]
+    private float itemAnimationDelay;
 
     private InventoryItemView selectedItemView;
 
@@ -41,28 +44,56 @@ public class InventoryScreen : UISlidingScreen
     protected override void OnBeforeShow()
     {
         PlayerInventory inventory = itemManager.Inventory;
-        foreach(VisualItem item in inventory.VisualItems)
+
+        List<InventoryItemView> availableViews = new List<InventoryItemView>();
+        foreach (InventoryItemView view in itemViews)
         {
-            bool foundDisplay = false;
-            foreach(InventoryItemView view in itemViews)
+            if (view.IsActive == false)
             {
-                if(view.IsActive == false)
-                {
-                    view.DisplayItem(item);
-                    foundDisplay = true;
-                    break;
-                }
+                availableViews.Add(view);
             }
-            if (!foundDisplay)
+        }
+
+        for(int i = 0; i < inventory.VisualItems.Count; i++)
+        {
+            VisualItem item = inventory.VisualItems[i];
+            if (availableViews.Count > i)
+            {
+                availableViews[i].DisplayItem(item);
+            }
+            else
             {
                 InventoryItemView newItemView = inventoryItemViewFactory.Create(item);
                 itemViews.Add(newItemView);
                 newItemView.transform.SetParent(itemViewsContainer);
-                newItemView.Deselect();
             }
         }
 
         base.OnBeforeShow();
+    }
+
+    protected override void OnAfterShow()
+    {
+        base.OnAfterShow();
+        StartCoroutine(DoItemsAnimation());
+    }
+
+    private IEnumerator DoItemsAnimation()
+    {
+        int index = 0;
+        float timer = itemAnimationDelay;
+        PlayerInventory inventory = itemManager.Inventory;
+        while (index < inventory.VisualItems.Count)
+        {
+            timer -= Time.deltaTime;
+            yield return null;
+            if(timer < 0)
+            {
+                timer = itemAnimationDelay;
+                itemViews[index].ShowContainer();
+                index++;
+            }
+        }
     }
 
     public void SetUp(bool isStore)
@@ -81,7 +112,6 @@ public class InventoryScreen : UISlidingScreen
         foreach (InventoryItemView view in itemViews)
         {
             view.Hide();
-
         }
         base.Close();
     }

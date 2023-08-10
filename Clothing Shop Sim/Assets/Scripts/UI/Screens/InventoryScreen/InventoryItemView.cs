@@ -21,6 +21,8 @@ public class InventoryItemView : MonoBehaviour
     private Color selectedColor;
     [SerializeField]
     private Color deselectedColor;
+    [SerializeField]
+    private GameObject container;
 
     public bool IsActive => gameObject.activeSelf;
     public VisualItem Item { get; private set; }
@@ -74,9 +76,15 @@ public class InventoryItemView : MonoBehaviour
         }
     }
 
+    public void ShowContainer(bool value = true)
+    {
+        container.SetActive(value);
+    }
+
     public void Hide()
     {
         gameObject.SetActive(false);
+        ShowContainer(false);
     }
 
     public class Factory : PlaceholderFactory<VisualItem, InventoryItemView> { }

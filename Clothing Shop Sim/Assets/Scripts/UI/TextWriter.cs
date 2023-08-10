@@ -27,6 +27,13 @@ public class TextWriter : MonoBehaviour
         {
             yield return null;
             timer -= Time.deltaTime;
+
+            if (Input.GetMouseButton(0))
+            {
+                charDelay = 0;
+                playSound = false;
+            }
+
             if (timer <= 0)
             {
                 currentText.text = text.Substring(0, index);

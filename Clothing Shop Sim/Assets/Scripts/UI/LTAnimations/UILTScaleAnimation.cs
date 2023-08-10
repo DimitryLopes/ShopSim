@@ -15,7 +15,7 @@ public class UILTScaleAnimation : MonoBehaviour
 
     private Vector3 defaultScale;
 
-    void Start()
+    void OnEnable()
     {
         defaultScale = transform.localScale;
         DoScaleUpAnimation();
@@ -36,5 +36,10 @@ public class UILTScaleAnimation : MonoBehaviour
     private void DoScaleDownAnimation()
     {
         transform.LeanScale(defaultScale, duaration).setOnComplete(DoScaleUpAnimation).setEase(ease);
+    }
+
+    private void OnDisable()
+    {
+        transform.localScale = defaultScale;
     }
 }
