@@ -17,6 +17,7 @@ public class SignalInstaller : MonoInstaller
         Container.DeclareSignal<OnInventoryItemSelectedSignal>();
         Container.DeclareSignal<OnScreenOpenedSignal>();
         Container.DeclareSignal<OnScreenClosedSignal>();
-        Container.DeclareSignal<OnFinishUITextAnimation>();
+        Container.DeclareSignal<OnFinishUITextAnimationSignal>();
+        Container.DeclareSignal<OnPurchaseFailSignal>();
     }
 }

@@ -24,7 +24,7 @@ public class MainMenuTitle : MonoBehaviour
 
     private void Awake()
     {
-        signalBus.Subscribe<OnFinishUITextAnimation>(OnAnimationFinish);
+        signalBus.Subscribe<OnFinishUITextAnimationSignal>(OnAnimationFinish);
     }
 
     private void Start()
@@ -42,7 +42,7 @@ public class MainMenuTitle : MonoBehaviour
         textWritter.Write(titleText, text, textAnimationCharDelay, true, ScreenType.MainMenuScreen);
     }
 
-    private void OnAnimationFinish(OnFinishUITextAnimation signal)
+    private void OnAnimationFinish(OnFinishUITextAnimationSignal signal)
     {
         if(signal.Screen == ScreenType.MainMenuScreen)
         {

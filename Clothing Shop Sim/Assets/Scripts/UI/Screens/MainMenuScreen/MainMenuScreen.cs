@@ -28,7 +28,7 @@ public class MainMenuScreen : UISlidingScreen
 
     protected override void OnAwake()
     {
-        signalBus.Subscribe<OnFinishUITextAnimation>(OnFinishUITextAnimation);
+        signalBus.Subscribe<OnFinishUITextAnimationSignal>(OnFinishUITextAnimation);
         playButton.onClick.AddListener(OnPlayButtonClicked);
         optionButton.onClick.AddListener(OnOptionButtonClicked);
         backButton.onClick.AddListener(OnBackButtonClicked);
@@ -56,7 +56,7 @@ public class MainMenuScreen : UISlidingScreen
         mainMenuContainer.gameObject.SetActive(false);
     }
 
-    private void OnFinishUITextAnimation(OnFinishUITextAnimation signal)
+    private void OnFinishUITextAnimation(OnFinishUITextAnimationSignal signal)
     {
         if (signal.Screen == ScreenType.MainMenuScreen)
         {

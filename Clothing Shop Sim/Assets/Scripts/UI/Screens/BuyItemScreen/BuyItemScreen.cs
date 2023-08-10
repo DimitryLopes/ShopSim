@@ -8,8 +8,14 @@ public class BuyItemScreen : UIScalingScreen
     [Inject]
     private SignalBus signalBus;
     [Inject]
+    private AudioManager audioManager;
+    [Inject]
     private ItemManager itemManager;
 
+    [SerializeField]
+    private AudioClip purchaseFailSFX;
+    [SerializeField]
+    private AudioClip purchaseSucessSFX;
     [SerializeField]
     private TextMeshProUGUI itemNameText;
     [SerializeField]
@@ -54,11 +60,18 @@ public class BuyItemScreen : UIScalingScreen
             OnPurchaseSucess();
             return;
         }
-        //OnPurchaseFail() floating text here, maybe?
+        OnPurchaseFail();
+    }
+
+    private void OnPurchaseFail()
+    {
+        audioManager.PlayAudio(purchaseFailSFX);
+        signalBus.Fire(new OnPurchaseFailSignal());
     }
 
     private void OnPurchaseSucess()
     {
+        audioManager.PlayAudio(purchaseSucessSFX);
         itemManager.ChangeCurrencyAmount(-item.Price);
         itemManager.AddItem(item);
         signalBus.Fire(new OnItemBoughtSignal(item));

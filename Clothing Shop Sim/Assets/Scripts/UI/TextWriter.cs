@@ -46,6 +46,6 @@ public class TextWriter : MonoBehaviour
             }
         }
 
-        signalBus.Fire(new OnFinishUITextAnimation(type));
+        signalBus.Fire(new OnFinishUITextAnimationSignal(type));
     }
 }
