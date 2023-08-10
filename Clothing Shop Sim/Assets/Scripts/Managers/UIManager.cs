@@ -27,7 +27,7 @@ public class UIManager
         return screenDatabase.Screens[type];
     }
 
-    public void AllowClick(bool value)
+    public void AllowClick(bool value = true)
     {
         eventSystem.enabled = value;
     }

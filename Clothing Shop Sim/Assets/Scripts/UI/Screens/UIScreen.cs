@@ -11,7 +11,7 @@ public abstract class UIScreen : MonoBehaviour
     [Inject]
     private AudioManager audioManager;
     [Inject]
-    private UIManager uiManager;
+    protected UIManager uiManager;
 
     [SerializeField, Header("Sound")]
     private AudioClip openAudioClip;
@@ -99,7 +99,7 @@ public abstract class UIScreen : MonoBehaviour
 
     protected virtual void OnAfterShow()
     {
-        uiManager.AllowClick(true);
+        uiManager.AllowClick();
     }
 
     protected virtual void Close()

@@ -7,7 +7,6 @@ public class UISlidingScreen : UIScreen
     [SerializeField]
     private Transform endPosition;
 
-
     protected override void OnBeforeShow()
     {
         screenTransform.LeanMoveLocal(endPosition.localPosition, animationDuration).setEase(ease).setOnComplete(OnAfterShow);
