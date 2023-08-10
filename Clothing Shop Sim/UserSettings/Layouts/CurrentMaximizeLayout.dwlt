@@ -224,10 +224,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 202}
-      m_SelectedIDs: 1e9f0000
+      scrollPos: {x: 0, y: 126}
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: a2a1ffffdaa1ffff02b0ffffc6b0ffffd6b1ffff3ab90000c4b90000d0b90000e6b9000020ba00003aba000042ba0000b6ba0000daba000030bb000042bb000052bb000066bb0000a8bb000098bc0000
+      m_ExpandedIDs: a2a1ffffdaa1ffff02b0ffffc6b0ffffd6b1ffff3ab9000040b90000c4b90000d0b90000e6b9000020ba00003aba000042ba0000b6ba0000daba000030bb000042bb000052bb000066bb0000a8bb000098bc0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -623,9 +623,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 235.05104, y: 169.51602, z: -2.3995924}
+    m_Target: {x: 249.13159, y: 183.00012, z: -3.5486803}
     speed: 2
-    m_Value: {x: 235.05104, y: 169.51602, z: -2.3995924}
+    m_Value: {x: 249.13159, y: 183.00012, z: -3.5486803}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -676,9 +676,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 281.80484
+    m_Target: 396.7136
     speed: 2
-    m_Value: 281.80484
+    m_Value: 396.7136
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -773,22 +773,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/ScriptableObjects/Items
+    - Assets/Scripts/UI/LTAnimations
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 87
   m_LastFolders:
-  - Assets/Resources/ScriptableObjects/Items
+  - Assets/Scripts/UI/LTAnimations
   m_LastFoldersGridSize: 87
   m_LastProjectPath: C:\Users\User\Documents\GitHub\ShopSim\Clothing Shop Sim
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 110}
-    m_SelectedIDs: 2cbf0000
-    m_LastClickedID: 48940
-    m_ExpandedIDs: 00000000deb30000e2b30000e8b3000024bf00002abf00004cbf00004ebf000070d5000000ca9a3b
+    scrollPos: {x: 0, y: 394}
+    m_SelectedIDs: 36490100
+    m_LastClickedID: 84278
+    m_ExpandedIDs: 00000000deb30000e2b30000e8b30000ecb3000024bf00002abf00004cbf00004ebf000070d5000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -816,7 +816,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000deb30000e2b30000ecb3000030bf00004ebf000070d5000000ca9a3b
+    m_ExpandedIDs: 00000000deb30000e2b30000e8b3000024bf00002abf00004cbf00004ebf000070d5000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -841,8 +841,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 1e9f0000
-    m_LastClickedInstanceID: 40734
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300003e6600004266000028730000669600008e68000000000000aca40000
     m_RenameOverlay:
@@ -930,7 +930,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 48040
+  m_LastSelectedObjectID: 47648
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52

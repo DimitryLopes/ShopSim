@@ -61,11 +61,12 @@ public abstract class UIScreen : MonoBehaviour
     {
         if (uiManager.CurrentOpenedScreen != this && CanShow)
         {
+            uiManager.CurrentOpenedScreen?.Hide();
             CanShow = false;
             DisableButtons();
-            OnBeforeShow();
             PlayAudio(openAudioClip);
             playerManager.AllowPlayerActions(false);
+            OnBeforeShow();
             gameObject.SetActive(true);
             signalBus.Fire(new OnScreenOpenedSignal(this));
             isFirstShow = false;
