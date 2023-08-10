@@ -5576,7 +5576,7 @@ MonoBehaviour:
   itemViewsContainer: {fileID: 1533082329}
   sellButton: {fileID: 1854814416}
   equipButtonContainer: {fileID: 1020709418}
-  itemAnimationDelay: 0.15
+  itemAnimationDelay: 0.1
 --- !u!1 &649438385
 GameObject:
   m_ObjectHideFlags: 0
@@ -10993,14 +10993,14 @@ MonoBehaviour:
   m_Padding:
     m_Left: 10
     m_Right: 0
-    m_Top: 9
-    m_Bottom: 0
-  m_ChildAlignment: 0
+    m_Top: 10
+    m_Bottom: 10
+  m_ChildAlignment: 4
   m_Spacing: 5
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
+  m_ChildControlHeight: 1
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
