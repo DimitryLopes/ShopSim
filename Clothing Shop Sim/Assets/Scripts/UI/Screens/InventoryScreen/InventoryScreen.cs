@@ -41,23 +41,27 @@ public class InventoryScreen : UISlidingScreen
     protected override void OnBeforeShow()
     {
         PlayerInventory inventory = itemManager.Inventory;
-        //reminder to try find a better way
         foreach(VisualItem item in inventory.VisualItems)
         {
+            bool foundDisplay = false;
             foreach(InventoryItemView view in itemViews)
             {
                 if(view.IsActive == false)
                 {
                     view.DisplayItem(item);
-                    continue;
+                    foundDisplay = true;
+                    break;
                 }
             }
-            InventoryItemView newItemView = inventoryItemViewFactory.Create(item);
-            itemViews.Add(newItemView);
-            newItemView.transform.SetParent(itemViewsContainer);
-            newItemView.Deselect();
+            if (!foundDisplay)
+            {
+                InventoryItemView newItemView = inventoryItemViewFactory.Create(item);
+                itemViews.Add(newItemView);
+                newItemView.transform.SetParent(itemViewsContainer);
+                newItemView.Deselect();
+            }
         }
-        //
+
         base.OnBeforeShow();
     }
 

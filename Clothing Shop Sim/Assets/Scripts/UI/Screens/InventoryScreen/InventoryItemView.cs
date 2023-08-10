@@ -37,7 +37,9 @@ public class InventoryItemView : MonoBehaviour
     public void DisplayItem(VisualItem item)
     {
         Item = item;
+        Deselect();
         itemView.DisplayItem(item.ItemIcon);
+        gameObject.SetActive(true);
     }
 
     private void OnButtonClicked()

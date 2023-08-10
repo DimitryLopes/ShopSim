@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quantity: 0
   type: 0
-  name: Fruit Basked
+  name: Fruit Basket
   spriteSheet:
   - {fileID: -473488551, guid: ad2d262025e4689448879d35afd65a7a, type: 3}
   - {fileID: 1425410916, guid: ad2d262025e4689448879d35afd65a7a, type: 3}
