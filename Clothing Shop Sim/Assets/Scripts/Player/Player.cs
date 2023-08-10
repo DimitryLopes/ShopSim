@@ -159,7 +159,7 @@ public class Player : MonoBehaviour
         Clothes[signal.Type].sprite = null;
     }
 
-    //I'm not sure if this is legal. Called on animations
+
     public void OnSpriteChanged(int index)
     {
         animationFrameIndex = index;
