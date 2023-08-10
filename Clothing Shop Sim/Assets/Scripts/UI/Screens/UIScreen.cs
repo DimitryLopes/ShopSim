@@ -24,8 +24,9 @@ public abstract class UIScreen : MonoBehaviour
     protected LeanTweenType ease;
     [SerializeField]
     protected Transform screenTransform;
+
     [SerializeField, Space]
-    private Button closeButton;
+    protected Button closeButton;
 
     protected bool isFirstShow = true;
     public bool CanShow { get; private set; } = true;
@@ -102,6 +103,11 @@ public abstract class UIScreen : MonoBehaviour
     protected virtual void OnAfterShow()
     {
         uiManager.AllowClick();
+    }
+
+    protected virtual void OnAfterHide()
+    {
+        Close();
     }
 
     protected virtual void Close()

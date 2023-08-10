@@ -23,6 +23,7 @@ public class TextWriter : MonoBehaviour
     {
         int index = 0;
         float timer = charDelay;
+        text = text.Replace("\\n", "\n");
         while(currentText.text.Length != text.Length)
         {
             yield return null;

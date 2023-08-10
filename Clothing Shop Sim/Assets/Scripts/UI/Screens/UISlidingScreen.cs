@@ -14,6 +14,6 @@ public class UISlidingScreen : UIScreen
 
     protected override void OnBeforeHide()
     {
-        screenTransform.LeanMoveLocal(startPosition.localPosition, animationDuration).setEase(ease).setOnComplete(Close);
+        screenTransform.LeanMoveLocal(startPosition.localPosition, animationDuration).setEase(ease).setOnComplete(OnAfterHide);
     }
 }

@@ -13,7 +13,7 @@ public class PauseScreenListener : MonoBehaviour
             PauseScreen screen = (PauseScreen)uIManager.GetScreen(ScreenType.PauseScreen);
             if (screen != null)
             {
-                if (!screen.IsShowing)
+                if (!screen.IsShowing && uIManager.CurrentOpenedScreen == null)
                 {
                     screen.Show();
                 }
@@ -25,4 +25,4 @@ public class PauseScreenListener : MonoBehaviour
             }
         }
     }
-}
+}   

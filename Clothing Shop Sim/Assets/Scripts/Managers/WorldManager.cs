@@ -37,7 +37,6 @@ public class WorldManager
 
     public void SetWorldState(bool state)
     {
-        playerManager.SetPlayerState(state);
         playerManager.ResetPlayerPosition();
         actionContainer.gameObject.SetActive(state);
     }

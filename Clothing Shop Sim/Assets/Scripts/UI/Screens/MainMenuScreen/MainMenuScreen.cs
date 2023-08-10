@@ -70,6 +70,13 @@ public class MainMenuScreen : UISlidingScreen
         worldManager.SetWorldState(false);
     }
 
+    protected override void OnAfterHide()
+    {
+        base.OnAfterHide();
+        UIScreen screen = uiManager.GetScreen(ScreenType.TutorialScreen);
+        screen.Show();
+    }
+
     private void OnBackButtonClicked()
     {
         optionContainer.gameObject.SetActive(false);

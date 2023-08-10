@@ -10,4 +10,5 @@ public enum ScreenType
     WorkScreen,
     MainMenuScreen,
     PauseScreen,
+    TutorialScreen,
 }
