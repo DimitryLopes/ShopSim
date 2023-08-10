@@ -11,6 +11,8 @@ public abstract class UIScreen : MonoBehaviour
     [Inject]
     private AudioManager audioManager;
     [Inject]
+    private InteractionTooltip tooltip;
+    [Inject]
     protected UIManager uiManager;
 
     [SerializeField, Header("Sound")]
@@ -67,7 +69,8 @@ public abstract class UIScreen : MonoBehaviour
             CanShow = false;
             DisableButtons();
             PlayAudio(openAudioClip);
-            playerManager.AllowPlayerActions(false);
+            tooltip.Enable(false);
+            OnScreenStateChanged(true);
             OnBeforeShow();
             gameObject.SetActive(true);
             signalBus.Fire(new OnScreenOpenedSignal(this));
@@ -80,9 +83,15 @@ public abstract class UIScreen : MonoBehaviour
         if (uiManager.CurrentOpenedScreen == this)
         {
             OnBeforeHide();
-            playerManager.AllowPlayerActions(true);
+            OnScreenStateChanged(false);
             signalBus.Fire(new OnScreenClosedSignal(this));
         }
+    }
+
+    private void OnScreenStateChanged(bool isShown)
+    {
+        tooltip.SetLockocked(isShown);
+        playerManager.AllowPlayerActions(!isShown);
     }
 
     private void PlayAudio(AudioClip clip)
