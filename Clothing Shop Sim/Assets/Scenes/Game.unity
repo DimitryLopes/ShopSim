@@ -2347,7 +2347,8 @@ MonoBehaviour:
   ease: 1
   target: {x: 1, y: 1, z: 1}
   duaration: 0.2
-  loop: 0
+  animateOnEnable: 0
+  loopAnimation: 0
 --- !u!114 &414447062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7940,7 +7941,8 @@ MonoBehaviour:
   ease: 1
   target: {x: 1, y: 1, z: 0}
   duaration: 1
-  loop: 0
+  animateOnEnable: 0
+  loopAnimation: 0
 --- !u!1 &844456062
 GameObject:
   m_ObjectHideFlags: 0
@@ -8570,7 +8572,8 @@ MonoBehaviour:
   ease: 1
   target: {x: 1.035, y: 1.035, z: 1}
   duaration: 2.5
-  loop: 1
+  animateOnEnable: 1
+  loopAnimation: 1
 --- !u!1 &999359215
 GameObject:
   m_ObjectHideFlags: 0
@@ -12065,7 +12068,8 @@ MonoBehaviour:
   ease: 1
   target: {x: 1, y: 1, z: 0}
   duaration: 1
-  loop: 0
+  animateOnEnable: 0
+  loopAnimation: 0
 --- !u!1 &1586328179
 GameObject:
   m_ObjectHideFlags: 0
@@ -16186,7 +16190,8 @@ MonoBehaviour:
   ease: 1
   target: {x: 1, y: 1, z: 0}
   duaration: 1
-  loop: 0
+  animateOnEnable: 0
+  loopAnimation: 0
 --- !u!1 &2004330729
 GameObject:
   m_ObjectHideFlags: 0

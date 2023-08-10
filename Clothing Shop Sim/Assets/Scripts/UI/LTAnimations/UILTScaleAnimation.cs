@@ -11,19 +11,37 @@ public class UILTScaleAnimation : MonoBehaviour
     [SerializeField]
     private float duaration;
     [SerializeField]
-    private bool loop;
+    private bool animateOnEnable;
+    [SerializeField]
+    private bool loopAnimation;
 
     private Vector3 defaultScale;
 
-    void OnEnable()
+    private void Awake()
     {
         defaultScale = transform.localScale;
-        DoScaleUpAnimation();
+    }
+
+    private void Start()
+    {
+        if (!animateOnEnable)
+        {
+            DoScaleUpAnimation();
+        }
+    }
+
+    void OnEnable()
+    {
+        if (animateOnEnable)
+        {
+            transform.localScale = defaultScale;
+            DoScaleUpAnimation();
+        }
     }
 
     private void DoScaleUpAnimation()
     {
-        if(loop)
+        if(loopAnimation)
         {
             transform.LeanScale(target, duaration).setOnComplete(DoScaleDownAnimation).setEase(ease);
         }
@@ -40,6 +58,9 @@ public class UILTScaleAnimation : MonoBehaviour
 
     private void OnDisable()
     {
-        transform.localScale = defaultScale;
+        if (animateOnEnable)
+        {
+            transform.localScale = defaultScale;
+        }
     }
 }
