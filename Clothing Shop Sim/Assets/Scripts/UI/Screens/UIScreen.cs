@@ -29,6 +29,7 @@ public abstract class UIScreen : MonoBehaviour
 
     protected bool isFirstShow = true;
     public bool CanShow { get; private set; } = true;
+    public bool IsShowing => gameObject.activeSelf;
 
     private void Awake()
     {

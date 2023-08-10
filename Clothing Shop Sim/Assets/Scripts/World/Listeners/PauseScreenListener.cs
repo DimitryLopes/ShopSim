@@ -11,7 +11,18 @@ public class PauseScreenListener : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseScreen screen = (PauseScreen)uIManager.GetScreen(ScreenType.PauseScreen);
-            screen.Show();
+            if (screen != null)
+            {
+                if (!screen.IsShowing)
+                {
+                    screen.Show();
+                }
+                else
+                {
+                    screen.Hide();
+                }
+
+            }
         }
     }
 }
