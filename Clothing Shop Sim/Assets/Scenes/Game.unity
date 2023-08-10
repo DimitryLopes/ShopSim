@@ -15957,6 +15957,7 @@ MonoBehaviour:
   closeButton: {fileID: 1560318253097638381}
   startPosition: {fileID: 1924914978}
   endPosition: {fileID: 1008632888}
+  textCharDelay: 0.1
   dialogueText: {fileID: 282596463}
   sellItemsButton: {fileID: 1725950106}
   updateMannequinsButton: {fileID: 1917229085}

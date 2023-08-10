@@ -10,8 +10,12 @@ public class DialogueScreen : UISlidingScreen
     [Inject]
     private WorldManager worldManager;
     [Inject]
+    private TextWriter textWriter;
+    [Inject]
     private UIManager uiManager;
 
+    [SerializeField]
+    private float textCharDelay;
     [SerializeField]
     private TextMeshProUGUI dialogueText;
     [SerializeField]
@@ -28,7 +32,7 @@ public class DialogueScreen : UISlidingScreen
 
     public void SetUp(string text)
     {
-        dialogueText.text = text;
+        textWriter.Write(dialogueText, text, textCharDelay, true, ScreenType.DialogueScreen);
     }
 
     private void ShowInventoryScreen()
