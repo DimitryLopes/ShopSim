@@ -224,10 +224,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 170}
-      m_SelectedIDs: 
+      scrollPos: {x: 0, y: 58}
+      m_SelectedIDs: dc50feff
       m_LastClickedID: 0
-      m_ExpandedIDs: a485feff109afeff94aafefff8aafeff00abfeffd2affeff3ab0feff48b8feffa2a1ffffdaa1ffff02b0ffffc6b0ffffd6b1ffff3ab9000040b90000c4b90000d0b90000e6b9000020ba00003aba000042ba0000b6ba0000daba000030bb000042bb000052bb000066bb0000a8bb000098bc000002250200082502008c25020098250200ae250200e82502001c270200a0270200
+      m_ExpandedIDs: a485feff109afeff94aafefff8aafeff00abfeffd2affeff3ab0feff48b8feffa2a1ffffdaa1ffff02b0ffffc6b0ffffd6b1ffff3ab9000040b90000c4b90000d0b90000e6b9000020ba00003aba000042ba0000b6ba0000daba000030bb000042bb000052bb000066bb0000a8bb000098bc000002250200262502002c2502008c25020098250200a8250200ae2502001a2602001c270200a0270200
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -623,9 +623,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 107.71904, y: 74.62847, z: 0.63250554}
+    m_Target: {x: 231.9008, y: 233.11884, z: -2.4815505}
     speed: 2
-    m_Value: {x: 107.71904, y: 74.62847, z: 0.63250554}
+    m_Value: {x: 231.9008, y: 233.11884, z: -2.4815505}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -676,9 +676,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 96.38672
+    m_Target: 405.07016
     speed: 2
-    m_Value: 96.38672
+    m_Value: 405.07016
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -761,7 +761,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_SearchFilter:
-    m_NameFilter: itemv
+    m_NameFilter: 
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -773,36 +773,36 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/UI/LTAnimations
+    - Assets/Resources/ScriptableObjects/Items
     m_Globs: []
-    m_OriginalText: itemv
+    m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 87
   m_LastFolders:
-  - Assets/Scripts/UI/LTAnimations
+  - Assets/Resources/ScriptableObjects/Items
   m_LastFoldersGridSize: 87
   m_LastProjectPath: C:\Users\User\Documents\GitHub\ShopSim\Clothing Shop Sim
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 298}
-    m_SelectedIDs: 36490100
-    m_LastClickedID: 84278
-    m_ExpandedIDs: 00000000deb30000e2b30000e8b30000ecb3000024bf00002abf000030bf00004cbf00004ebf000070d5000000ca9a3b
+    scrollPos: {x: 0, y: 222}
+    m_SelectedIDs: 2cbf0000
+    m_LastClickedID: 48940
+    m_ExpandedIDs: 00000000deb30000e8b30000ecb3000024bf00002abf000030bf000032bf00004cbf00004ebf000070d5000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: ScriptableObjects
+      m_OriginalName: ScriptableObjects
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 48938
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
@@ -841,10 +841,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: dc50feff
+    m_LastClickedInstanceID: -110372
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c62300003e6600004266000028730000669600008e68000000000000aca400000ea40000
+    m_ExpandedInstanceIDs: c62300003e6600004266000028730000669600008e68000000000000aca400000ea40000529e0000f0b20200
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -930,7 +930,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 156264
+  m_LastSelectedObjectID: 140582
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52

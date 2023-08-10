@@ -68,6 +68,10 @@ public class PlayerInventory
     public void ChangeCurrencyAmount(int amount)
     {
         currency.Quantity += amount;
+        if(currency.Quantity < 0)
+        {
+            currency.Quantity = 0;
+        }
         signalBus.Fire(new OnCurrencyChangedSignal());
     }
     #endregion
