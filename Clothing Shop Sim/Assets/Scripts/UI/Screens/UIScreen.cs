@@ -11,7 +11,7 @@ public abstract class UIScreen : MonoBehaviour
     [Inject]
     private AudioManager audioManager;
     [Inject]
-    private InteractionTooltip tooltip;
+    protected InteractionTooltip tooltip;
     [Inject]
     protected UIManager uiManager;
 
@@ -78,7 +78,7 @@ public abstract class UIScreen : MonoBehaviour
         }
     }
 
-    public void Hide()
+    public virtual void Hide()
     {
         if (uiManager.CurrentOpenedScreen == this)
         {

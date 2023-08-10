@@ -71,9 +71,20 @@ public class MainMenuScreen : UISlidingScreen
         base.OnAfterShow();
     }
 
+    public override void Hide()
+    {
+        if (uiManager.CurrentOpenedScreen == this)
+        {
+            OnBeforeHide();
+            signalBus.Fire(new OnScreenClosedSignal(this));
+        }
+    }
+
     protected override void OnAfterHide()
     {
         base.OnAfterHide();
+        tooltip.SetLockocked(false);
+        playerManager.AllowPlayerActions(true);
         playerManager.SetPlayerState(true);
         UIScreen screen = uiManager.GetScreen(ScreenType.TutorialScreen);
         screen.Show();
