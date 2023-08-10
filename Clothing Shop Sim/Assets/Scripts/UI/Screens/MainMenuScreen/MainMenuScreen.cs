@@ -9,6 +9,8 @@ public class MainMenuScreen : UISlidingScreen
     [Inject]
     private SignalBus signalBus;
     [Inject]
+    private PlayerManager playerManager;
+    [Inject]
     private WorldManager worldManager;
 
     [SerializeField]
@@ -67,12 +69,12 @@ public class MainMenuScreen : UISlidingScreen
     protected override void OnAfterShow()
     {
         base.OnAfterShow();
-        worldManager.SetWorldState(false);
     }
 
     protected override void OnAfterHide()
     {
         base.OnAfterHide();
+        playerManager.SetPlayerState(true);
         UIScreen screen = uiManager.GetScreen(ScreenType.TutorialScreen);
         screen.Show();
     }

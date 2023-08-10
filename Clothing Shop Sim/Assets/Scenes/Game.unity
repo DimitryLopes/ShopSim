@@ -1954,6 +1954,95 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282772462}
   m_CullTransparentMesh: 1
+--- !u!1 &285900463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 285900464}
+  - component: {fileID: 285900466}
+  - component: {fileID: 285900467}
+  - component: {fileID: 285900465}
+  m_Layer: 5
+  m_Name: InteractionToolTip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &285900464
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285900463}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 466328909}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 40, y: 40}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &285900465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285900463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 4ac845a68d63a184f8fb61360f6f8f2b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &285900466
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285900463}
+  m_CullTransparentMesh: 1
+--- !u!114 &285900467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285900463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a947926ad4289ec4abd14193fa0bab41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &292364608
 GameObject:
   m_ObjectHideFlags: 0
@@ -2582,6 +2671,7 @@ RectTransform:
   - {fileID: 934442036}
   - {fileID: 1402140124}
   - {fileID: 682396448}
+  - {fileID: 285900464}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7385,6 +7475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventSystem: {fileID: 1811616911}
+  tooltip: {fileID: 285900467}
   textWriter: {fileID: 1481099233}
   screenDatabase:
     screens:
@@ -9480,7 +9571,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: what else you've got?
+  m_text: Restock
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d5acc5a39593f14bbb43eb1afec708a, type: 2}
   m_sharedMaterial: {fileID: -8602285286948532658, guid: 1d5acc5a39593f14bbb43eb1afec708a, type: 2}
@@ -9507,7 +9598,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.25
+  m_fontSize: 44.65
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -11258,7 +11349,7 @@ GameObject:
   - component: {fileID: 1511877985}
   - component: {fileID: 1511877984}
   - component: {fileID: 1511877983}
-  - component: {fileID: 1511877982}
+  - component: {fileID: 1511877987}
   m_Layer: 7
   m_Name: Shoopkeeper
   m_TagString: Interactable
@@ -11266,22 +11357,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &1511877982
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511877981}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.2}
-  serializedVersion: 2
-  m_Radius: 0.12
 --- !u!114 &1511877983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11294,6 +11369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f565741b1e872504ab0b52d17a0304f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: Welcome to my generic shop! You can buy anything from those mannequins, if
+    you need money go work outside!
 --- !u!50 &1511877984
 Rigidbody2D:
   serializedVersion: 4
@@ -11382,6 +11459,32 @@ Transform:
   m_Father: {fileID: 446544742}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1511877987
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511877981}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.012756467, y: -0.19134758}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.48, y: 0.64}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.94773877, y: 0.25730482}
+  m_EdgeRadius: 0
 --- !u!1 &1514530037
 GameObject:
   m_ObjectHideFlags: 0
@@ -17576,6 +17679,10 @@ PrefabInstance:
     - target: {fileID: 5775160723028923348, guid: 4e6f4cf7b3e16be4d9a82ea6857464fe, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775160723028923348, guid: 4e6f4cf7b3e16be4d9a82ea6857464fe, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5775160723028923354, guid: 4e6f4cf7b3e16be4d9a82ea6857464fe, type: 3}
       propertyPath: m_RootOrder

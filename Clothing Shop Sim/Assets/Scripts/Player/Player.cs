@@ -6,6 +6,8 @@ using Zenject;
 public class Player : MonoBehaviour
 {
     [Inject]
+    private InteractionTooltip tooltip;
+    [Inject]
     private SignalBus signalBus;
     [Inject]
     private ItemManager itemManager;
@@ -94,19 +96,23 @@ public class Player : MonoBehaviour
     private void HandleInteraction()
     {
         Debug.DrawRay(interactionStartPoint.position, lastMovement.normalized * interactionRange, Color.red);
-        //settings to change config here, maybe?
-        if (Input.GetKeyDown(KeyCode.E))
+
+        RaycastHit2D hit = Physics2D.Raycast(interactionStartPoint.position, lastMovement.normalized, interactionRange, interactableLayer);
+        if (hit)
         {
-            RaycastHit2D hit = Physics2D.Raycast(interactionStartPoint.position, lastMovement.normalized, interactionRange, interactableLayer);
-            if (hit)
+            IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
+            bool foundInteractable = interactable != null;
+            if (foundInteractable)
             {
-                IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
-                if (interactable != null)
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     interactable.Interact();
                 }
             }
+            tooltip.Enable(foundInteractable);
+            return;
         }
+        tooltip.Enable(false);
     }
     #endregion
 

@@ -10,6 +10,8 @@ public class UIInstaller : MonoInstaller
     [SerializeField]
     private EventSystem eventSystem;
     [SerializeField]
+    private InteractionTooltip tooltip;
+    [SerializeField]
     private TextWriter textWriter;
     [SerializeField]
     private ScreenDatabase screenDatabase;
@@ -19,5 +21,6 @@ public class UIInstaller : MonoInstaller
         UIManager uIManager = new UIManager(screenDatabase, signalBus, eventSystem);
         Container.Bind<UIManager>().FromInstance(uIManager).AsSingle();
         Container.Bind<TextWriter>().FromInstance(textWriter).AsSingle();
+        Container.Bind<InteractionTooltip>().FromInstance(tooltip).AsSingle();
     }
 }

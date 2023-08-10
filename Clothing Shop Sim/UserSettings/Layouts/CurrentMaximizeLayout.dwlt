@@ -224,24 +224,24 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 74}
-      m_SelectedIDs: fcb3fdff
-      m_LastClickedID: -150532
-      m_ExpandedIDs: f8acfdff9eb2fdfff8b3fdff1eb5fdff68b5fdff6ab8fdff6acdfdffaad2fdfffed2fdff06d6fdffa485feff109afeff94aafefff8aafeff00abfeffd2affeff3ab0fefff2b7feff48b8feffa2a1ffffdaa1ffff02b0ffffc6b0ffffd6b1ffff3ab9000040b90000c4b90000d0b90000e6b9000020ba00003aba000042ba0000b6ba0000daba000030bb000042bb000052bb000066bb0000a8bb000098bc00000225020008250200262502002c2502008c250200a8250200ae2502001a2602001c270200a027020044d802004ad80200e2d8020038d902008cda020018db0200000d0300160d0300560d0300aa0e0300f60f0300
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 126a0300
+      m_LastClickedID: 223762
+      m_ExpandedIDs: f47ffdff4280fdff4883fdfff8acfdff9eb2fdfff8b3fdfffcb3fdff1eb5fdff68b5fdff6ab8fdff6acdfdffaad2fdfffed2fdff06d6fdffa485feff109afeff94aafefff8aafeff00abfeffd2affeff3ab0fefff2b7feff48b8feffa2a1ffffdaa1ffff02b0ffffc6b0ffffd6b1ffff3ab9000040b90000c4b90000d0b90000e6b9000020ba00003aba000042ba0000b6ba0000daba000030bb000042bb000052bb000066bb0000a8bb000098bc00000225020008250200262502002c2502008c250200a8250200ae2502001a2602001c270200a027020044d802004ad80200e2d8020038d902008cda020018db0200000d0300160d0300560d0300aa0e0300f60f03009e680300c06803004469030050690300666903008a690300306a0300806a0300186b03002a6b03004e6b0300886c0300
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: InteractionToolTip
+        m_OriginalName: InteractionToolTip
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -169006
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -625,9 +625,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 863.20795, y: 545.7097, z: -7.3379416}
+    m_Target: {x: 881.06714, y: 409.9336, z: -6.009788}
     speed: 2
-    m_Value: {x: 863.20795, y: 545.7097, z: -7.3379416}
+    m_Value: {x: 881.06714, y: 409.9336, z: -6.009788}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -678,9 +678,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 668.6965
+    m_Target: 633.448
     speed: 2
-    m_Value: 668.6965
+    m_Value: 633.448
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -733,7 +733,7 @@ MonoBehaviour:
   - {fileID: 13}
   - {fileID: 14}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -775,22 +775,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/World/Listeners
+    - Assets/Scripts/UI
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 87
   m_LastFolders:
-  - Assets/Scripts/World/Listeners
+  - Assets/Scripts/UI
   m_LastFoldersGridSize: 87
   m_LastProjectPath: C:\Users\User\Documents\GitHub\ShopSim\Clothing Shop Sim
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 522}
-    m_SelectedIDs: 72b40000
-    m_LastClickedID: 46194
-    m_ExpandedIDs: 00000000deb30000e0b30000e2b30000e8b30000ecb30000f0b30000febc000024bf00002abf000030bf00004cbf00004ebf000074c8000070d5000000ca9a3b
+    scrollPos: {x: 0, y: 298}
+    m_SelectedIDs: 4cbf0000
+    m_LastClickedID: 48972
+    m_ExpandedIDs: 00000000deb30000e0b30000e2b30000e8b30000ecb30000f0b3000024bf00002abf000030bf00004cbf00004ebf000074c8000070d5000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -818,7 +818,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000deb30000e8b30000ecb3000024bf00002abf000030bf00004cbf00004ebf000070d5000000ca9a3b
+    m_ExpandedIDs: 00000000deb30000e0b30000e2b30000e8b30000ecb30000f0b3000024bf00002abf000030bf00004cbf00004ebf000074c8000070d5000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -843,8 +843,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: fcb3fdff
-    m_LastClickedInstanceID: -150532
+    m_SelectedInstanceIDs: 126a0300
+    m_LastClickedInstanceID: 223762
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300003e6600004266000028730000669600008e68000000000000aca400000ea40000529e0000f0b20200f09e0000
     m_RenameOverlay:
@@ -932,7 +932,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 200244
+  m_LastSelectedObjectID: 223762
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
